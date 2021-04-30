@@ -14,7 +14,7 @@
 
     * Or the optimization technique could be ignored and turned into a simple for loop
 
--  struct-copying assignments, struct parameters, or struct returns.
+-  # struct-copying assignments, struct parameters, or struct returns.
 
     * working on desugaring for AST (using VST tools, or by preprocessing)
         + leaves behind a mess
@@ -23,6 +23,6 @@
 
 -  goto statements.
 
-    * parses, provable?
+    * parses at least, does not recognize loop tactics
 
 
