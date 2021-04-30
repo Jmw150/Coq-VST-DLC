@@ -1,9 +1,10 @@
+# Overall Project Milestones
 
-•  No casting between integers and pointers.
+•  casting between integers and pointers.
 
-•  No goto statements.
+•  struct-copying assignments, struct parameters, or struct returns.
 
-•  No struct-copying assignments, struct parameters, or struct returns.
+•  goto statements.
 
-•  Only structured switch statements (no Duff ’s device).
+•  structured switch statements (Duff ’s device).
 
