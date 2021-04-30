@@ -1,0 +1,3 @@
+#! /bin/bash
+
+g++ desugar.cpp && ./a.out "struct-copy.c" && rm a.out

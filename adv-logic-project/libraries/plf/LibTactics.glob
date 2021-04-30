@@ -1,0 +1,1849 @@
+DIGEST 2c1c1f7776edeafe4c3e003a7c4f9ae1
+FPLF.LibTactics
+R2596:2599 Coq.Lists.List <> <> lib
+ind 3339:3343 <> Boxer
+constr 3359:3363 <> boxer
+binder 3375:3375 <> A:3
+R3385:3388 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3389:3393 PLF.LibTactics <> Boxer:1 ind
+R3384:3384 PLF.LibTactics <> A:3 var
+ind 3834:3844 <> ltac_No_arg
+constr 3859:3869 <> ltac_no_arg
+R3873:3883 PLF.LibTactics <> ltac_No_arg:4 ind
+ind 4139:4147 <> ltac_Wild
+constr 4162:4170 <> ltac_wild
+R4174:4182 PLF.LibTactics <> ltac_Wild:6 ind
+R4205:4213 PLF.LibTactics <> ltac_wild constr
+not 4195:4195 <> ::ltac_scope:'__'
+ind 4428:4437 <> ltac_Wilds
+constr 4452:4461 <> ltac_wilds
+R4465:4474 PLF.LibTactics <> ltac_Wilds:8 ind
+R4498:4507 PLF.LibTactics <> ltac_wilds constr
+not 4487:4487 <> ::ltac_scope:'___'
+ind 4807:4815 <> ltac_Mark
+constr 4831:4839 <> ltac_mark
+R4843:4851 PLF.LibTactics <> ltac_Mark:10 ind
+R5158:5166 PLF.LibTactics <> ltac_Mark ind
+R5158:5166 PLF.LibTactics <> ltac_Mark ind
+R5541:5549 PLF.LibTactics <> ltac_Mark ind
+R5541:5549 PLF.LibTactics <> ltac_Mark ind
+R5922:5925 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5913:5921 PLF.LibTactics <> ltac_Mark ind
+R5922:5925 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5913:5921 PLF.LibTactics <> ltac_Mark ind
+R6387:6389 Coq.Init.Datatypes <> nil constr
+R6391:6395 PLF.LibTactics <> Boxer ind
+not 6373:6373 <> ::ltac_scope:'>>'
+R6454:6454 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6463:6465 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6455:6459 PLF.LibTactics <> boxer constr
+R6466:6468 Coq.Init.Datatypes <> nil constr
+not 6438:6438 <> ::ltac_scope:'>>'_x
+R6545:6545 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6554:6556 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6546:6550 PLF.LibTactics <> boxer constr
+R6557:6557 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6566:6568 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6558:6562 PLF.LibTactics <> boxer constr
+R6569:6571 Coq.Init.Datatypes <> nil constr
+not 6526:6526 <> ::ltac_scope:'>>'_x_x
+R6666:6666 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6675:6677 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6667:6671 PLF.LibTactics <> boxer constr
+R6678:6678 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6687:6689 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6679:6683 PLF.LibTactics <> boxer constr
+R6690:6690 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6699:6701 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6691:6695 PLF.LibTactics <> boxer constr
+R6702:6704 Coq.Init.Datatypes <> nil constr
+not 6644:6644 <> ::ltac_scope:'>>'_x_x_x
+R6817:6817 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6826:6828 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6818:6822 PLF.LibTactics <> boxer constr
+R6829:6829 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6838:6840 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6830:6834 PLF.LibTactics <> boxer constr
+R6841:6841 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6850:6852 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6842:6846 PLF.LibTactics <> boxer constr
+R6853:6853 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6862:6864 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6854:6858 PLF.LibTactics <> boxer constr
+R6865:6867 Coq.Init.Datatypes <> nil constr
+not 6792:6792 <> ::ltac_scope:'>>'_x_x_x_x
+R7001:7001 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7010:7012 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7002:7006 PLF.LibTactics <> boxer constr
+R7013:7013 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7022:7024 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7014:7018 PLF.LibTactics <> boxer constr
+R7025:7025 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7034:7036 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7026:7030 PLF.LibTactics <> boxer constr
+R7037:7037 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7046:7048 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7038:7042 PLF.LibTactics <> boxer constr
+R7049:7049 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7058:7060 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7050:7054 PLF.LibTactics <> boxer constr
+R7061:7063 Coq.Init.Datatypes <> nil constr
+not 6973:6973 <> ::ltac_scope:'>>'_x_x_x_x_x
+R7215:7215 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7224:7226 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7216:7220 PLF.LibTactics <> boxer constr
+R7227:7227 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7236:7238 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7228:7232 PLF.LibTactics <> boxer constr
+R7239:7239 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7248:7250 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7240:7244 PLF.LibTactics <> boxer constr
+R7251:7251 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7260:7262 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7252:7256 PLF.LibTactics <> boxer constr
+R7263:7263 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7272:7278 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7264:7268 PLF.LibTactics <> boxer constr
+R7279:7279 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7288:7290 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7280:7284 PLF.LibTactics <> boxer constr
+R7291:7293 Coq.Init.Datatypes <> nil constr
+not 7184:7184 <> ::ltac_scope:'>>'_x_x_x_x_x_x
+R7463:7463 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7472:7474 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7464:7468 PLF.LibTactics <> boxer constr
+R7475:7475 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7484:7486 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7476:7480 PLF.LibTactics <> boxer constr
+R7487:7487 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7496:7498 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7488:7492 PLF.LibTactics <> boxer constr
+R7499:7499 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7508:7510 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7500:7504 PLF.LibTactics <> boxer constr
+R7511:7511 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7520:7526 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7512:7516 PLF.LibTactics <> boxer constr
+R7527:7527 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7536:7538 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7528:7532 PLF.LibTactics <> boxer constr
+R7539:7539 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7548:7550 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7540:7544 PLF.LibTactics <> boxer constr
+R7551:7553 Coq.Init.Datatypes <> nil constr
+not 7429:7429 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x
+R7741:7741 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7750:7752 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7742:7746 PLF.LibTactics <> boxer constr
+R7753:7753 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7762:7764 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7754:7758 PLF.LibTactics <> boxer constr
+R7765:7765 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7774:7776 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7766:7770 PLF.LibTactics <> boxer constr
+R7777:7777 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7786:7788 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7778:7782 PLF.LibTactics <> boxer constr
+R7789:7789 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7798:7804 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7790:7794 PLF.LibTactics <> boxer constr
+R7805:7805 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7814:7816 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7806:7810 PLF.LibTactics <> boxer constr
+R7817:7817 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7826:7828 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7818:7822 PLF.LibTactics <> boxer constr
+R7829:7829 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7838:7840 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7830:7834 PLF.LibTactics <> boxer constr
+R7841:7843 Coq.Init.Datatypes <> nil constr
+not 7704:7704 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x_x
+R8052:8052 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8061:8063 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8053:8057 PLF.LibTactics <> boxer constr
+R8064:8064 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8073:8075 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8065:8069 PLF.LibTactics <> boxer constr
+R8076:8076 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8085:8087 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8077:8081 PLF.LibTactics <> boxer constr
+R8088:8088 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8097:8099 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8089:8093 PLF.LibTactics <> boxer constr
+R8100:8100 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8109:8115 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8101:8105 PLF.LibTactics <> boxer constr
+R8116:8116 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8125:8127 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8117:8121 PLF.LibTactics <> boxer constr
+R8128:8128 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8137:8139 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8129:8133 PLF.LibTactics <> boxer constr
+R8140:8140 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8149:8151 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8141:8145 PLF.LibTactics <> boxer constr
+R8152:8152 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8161:8163 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8153:8157 PLF.LibTactics <> boxer constr
+R8164:8166 Coq.Init.Datatypes <> nil constr
+not 8012:8012 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x_x_x
+R8394:8394 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8403:8405 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8395:8399 PLF.LibTactics <> boxer constr
+R8406:8406 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8415:8417 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8407:8411 PLF.LibTactics <> boxer constr
+R8418:8418 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8427:8429 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8419:8423 PLF.LibTactics <> boxer constr
+R8430:8430 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8439:8441 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8431:8435 PLF.LibTactics <> boxer constr
+R8442:8442 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8451:8457 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8443:8447 PLF.LibTactics <> boxer constr
+R8458:8458 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8467:8469 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8459:8463 PLF.LibTactics <> boxer constr
+R8470:8470 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8479:8481 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8471:8475 PLF.LibTactics <> boxer constr
+R8482:8482 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8491:8493 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8483:8487 PLF.LibTactics <> boxer constr
+R8494:8494 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8503:8505 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8495:8499 PLF.LibTactics <> boxer constr
+R8506:8506 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8516:8518 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8507:8511 PLF.LibTactics <> boxer constr
+R8519:8521 Coq.Init.Datatypes <> nil constr
+not 8350:8350 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x_x_x_x
+R8769:8769 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8778:8780 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8770:8774 PLF.LibTactics <> boxer constr
+R8781:8781 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8790:8792 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8782:8786 PLF.LibTactics <> boxer constr
+R8793:8793 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8802:8804 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8794:8798 PLF.LibTactics <> boxer constr
+R8805:8805 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8814:8816 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8806:8810 PLF.LibTactics <> boxer constr
+R8817:8817 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8826:8832 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8818:8822 PLF.LibTactics <> boxer constr
+R8833:8833 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8842:8844 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8834:8838 PLF.LibTactics <> boxer constr
+R8845:8845 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8854:8856 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8846:8850 PLF.LibTactics <> boxer constr
+R8857:8857 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8866:8868 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8858:8862 PLF.LibTactics <> boxer constr
+R8869:8869 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8878:8880 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8870:8874 PLF.LibTactics <> boxer constr
+R8881:8881 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8891:8897 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8882:8886 PLF.LibTactics <> boxer constr
+R8898:8898 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8908:8910 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8899:8903 PLF.LibTactics <> boxer constr
+R8911:8913 Coq.Init.Datatypes <> nil constr
+not 8721:8721 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x_x_x_x_x
+R9181:9181 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9190:9192 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9182:9186 PLF.LibTactics <> boxer constr
+R9193:9193 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9202:9204 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9194:9198 PLF.LibTactics <> boxer constr
+R9205:9205 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9214:9216 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9206:9210 PLF.LibTactics <> boxer constr
+R9217:9217 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9226:9228 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9218:9222 PLF.LibTactics <> boxer constr
+R9229:9229 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9238:9244 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9230:9234 PLF.LibTactics <> boxer constr
+R9245:9245 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9254:9256 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9246:9250 PLF.LibTactics <> boxer constr
+R9257:9257 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9266:9268 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9258:9262 PLF.LibTactics <> boxer constr
+R9269:9269 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9278:9280 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9270:9274 PLF.LibTactics <> boxer constr
+R9281:9281 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9290:9292 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9282:9286 PLF.LibTactics <> boxer constr
+R9293:9293 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9303:9309 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9294:9298 PLF.LibTactics <> boxer constr
+R9310:9310 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9320:9322 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9311:9315 PLF.LibTactics <> boxer constr
+R9323:9323 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9333:9335 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9324:9328 PLF.LibTactics <> boxer constr
+R9336:9338 Coq.Init.Datatypes <> nil constr
+not 9129:9129 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x_x_x_x_x_x
+R9629:9629 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9638:9640 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9630:9634 PLF.LibTactics <> boxer constr
+R9641:9641 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9650:9652 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9642:9646 PLF.LibTactics <> boxer constr
+R9653:9653 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9662:9664 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9654:9658 PLF.LibTactics <> boxer constr
+R9665:9665 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9674:9676 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9666:9670 PLF.LibTactics <> boxer constr
+R9677:9677 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9686:9692 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9678:9682 PLF.LibTactics <> boxer constr
+R9693:9693 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9702:9704 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9694:9698 PLF.LibTactics <> boxer constr
+R9705:9705 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9714:9716 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9706:9710 PLF.LibTactics <> boxer constr
+R9717:9717 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9726:9728 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9718:9722 PLF.LibTactics <> boxer constr
+R9729:9729 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9738:9740 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9730:9734 PLF.LibTactics <> boxer constr
+R9741:9741 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9751:9757 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9742:9746 PLF.LibTactics <> boxer constr
+R9758:9758 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9768:9770 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9759:9763 PLF.LibTactics <> boxer constr
+R9771:9771 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9781:9783 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9772:9776 PLF.LibTactics <> boxer constr
+R9784:9784 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9794:9796 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R9785:9789 PLF.LibTactics <> boxer constr
+R9797:9799 Coq.Init.Datatypes <> nil constr
+not 9573:9573 <> ::ltac_scope:'>>'_x_x_x_x_x_x_x_x_x_x_x_x_x
+R10347:10355 Coq.Lists.List <> list syndef
+R10357:10361 PLF.LibTactics <> Boxer ind
+R10347:10355 Coq.Lists.List <> list syndef
+R10357:10361 PLF.LibTactics <> Boxer ind
+R10394:10394 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10402:10404 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10395:10399 PLF.LibTactics <> boxer constr
+R10405:10407 Coq.Init.Datatypes <> nil constr
+ind 11051:11069 <> Ltac_database_token
+constr 11081:11099 <> ltac_database_token
+def 11114:11126 <> ltac_database
+R11131:11135 PLF.LibTactics <> Boxer ind
+binder 11129:11129 <> D:14
+R11141:11145 PLF.LibTactics <> Boxer ind
+binder 11139:11139 <> T:15
+R11151:11155 PLF.LibTactics <> Boxer ind
+binder 11149:11149 <> A:16
+R11161:11179 PLF.LibTactics <> Ltac_database_token ind
+R11213:11225 PLF.LibTactics <> ltac_database def
+R11238:11242 PLF.LibTactics <> boxer constr
+R11228:11232 PLF.LibTactics <> boxer constr
+not 11192:11192 <> :::'Register'_x_x
+prf 11302:11322 <> ltac_database_provide
+R11336:11340 PLF.LibTactics <> Boxer ind
+binder 11334:11334 <> A:17
+R11346:11350 PLF.LibTactics <> Boxer ind
+binder 11344:11344 <> D:18
+R11356:11360 PLF.LibTactics <> Boxer ind
+binder 11354:11354 <> T:19
+R11366:11378 PLF.LibTactics <> ltac_database def
+R11384:11384 PLF.LibTactics <> A:17 var
+R11382:11382 PLF.LibTactics <> T:19 var
+R11380:11380 PLF.LibTactics <> D:18 var
+R11439:11459 PLF.LibTactics <> ltac_database_provide thm
+R11462:11466 PLF.LibTactics <> boxer constr
+R11539:11543 PLF.LibTactics <> Boxer ind
+R11588:11600 PLF.LibTactics <> ltac_database def
+R11613:11617 PLF.LibTactics <> boxer constr
+R11603:11607 PLF.LibTactics <> boxer constr
+R11678:11690 PLF.LibTactics <> ltac_database def
+R11697:11701 PLF.LibTactics <> boxer constr
+R11678:11690 PLF.LibTactics <> ltac_database def
+R11697:11701 PLF.LibTactics <> boxer constr
+def 12337:12338 <> rm
+binder 12341:12341 <> A:20
+R12352:12352 PLF.LibTactics <> A:20 var
+binder 12350:12350 <> X:21
+R12358:12358 PLF.LibTactics <> X:21 var
+R12694:12695 PLF.LibTactics <> rm def
+R12694:12695 PLF.LibTactics <> rm def
+R13945:13950 Coq.PArith.BinPos <> <> lib
+R13952:13968 Coq.ZArith.BinInt <> <> lib
+R13980:13998 Coq.Numbers.BinNums <> <> lib
+R14000:14016 Coq.ZArith.BinInt <> <> lib
+def 14031:14045 <> ltac_int_to_nat
+R14050:14057 Coq.ZArith.BinInt <> Z syndef
+binder 14048:14048 <> x:22
+R14062:14064 Coq.Init.Datatypes <> nat ind
+R14077:14077 PLF.LibTactics <> x:22 var
+R14128:14142 Coq.PArith.BinPos <> nat_of_P syndef
+R14232:14234 Coq.Init.Datatypes <> nat ind
+R14232:14234 Coq.Init.Datatypes <> nat ind
+R14254:14261 Coq.ZArith.BinInt <> Z syndef
+R14254:14261 Coq.ZArith.BinInt <> Z syndef
+R14284:14298 PLF.LibTactics <> ltac_int_to_nat def
+prf 16412:16420 <> dup_lemma
+binder 16431:16431 <> P:24
+R16435:16438 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16440:16443 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16444:16444 PLF.LibTactics <> P:24 var
+R16439:16439 PLF.LibTactics <> P:24 var
+R16434:16434 PLF.LibTactics <> P:24 var
+R16541:16541 Coq.Init.Datatypes <> S constr
+R16541:16541 Coq.Init.Datatypes <> S constr
+R16558:16558 Coq.Init.Datatypes <> S constr
+R16558:16558 Coq.Init.Datatypes <> S constr
+R16573:16581 PLF.LibTactics <> dup_lemma thm
+R17176:17179 Coq.Init.Datatypes <> true constr
+R17193:17197 Coq.Init.Datatypes <> false constr
+def 18617:18630 <> ltac_tag_subst
+binder 18633:18633 <> A:25
+R18644:18644 PLF.LibTactics <> A:25 var
+binder 18642:18642 <> x:26
+R18650:18650 PLF.LibTactics <> x:26 var
+def 18753:18770 <> ltac_to_generalize
+binder 18773:18773 <> A:27
+R18784:18784 PLF.LibTactics <> A:27 var
+binder 18782:18782 <> x:28
+R18790:18790 PLF.LibTactics <> x:28 var
+R18852:18869 PLF.LibTactics <> ltac_to_generalize def
+R18852:18869 PLF.LibTactics <> ltac_to_generalize def
+R18979:18996 PLF.LibTactics <> ltac_to_generalize def
+R20481:20481 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20484:20484 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20486:20486 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20448:20448 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20454:20454 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20456:20456 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20408:20408 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20417:20417 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20419:20419 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20361:20361 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20373:20373 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20375:20375 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20307:20307 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20322:20322 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20324:20324 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20246:20246 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20264:20264 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20266:20266 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20178:20178 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20199:20199 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20201:20201 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21732:21734 Coq.Init.Logic <> ::type_scope:x_'='_x not
+def 22145:22147 <> eq'
+R22153:22154 Coq.Init.Logic <> eq ind
+R22170:22172 PLF.LibTactics <> eq' def
+R22208:22210 PLF.LibTactics <> eq' def
+not 22192:22192 <> :::x_'='''_x
+R22476:22479 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22476:22479 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22502:22508 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R22510:22511 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 22509:22509 <> a:29
+R22502:22508 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R22510:22511 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 22509:22509 <> a:30
+R22632:22638 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R22640:22641 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 22639:22639 <> a:31
+R22632:22638 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R22640:22641 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 22639:22639 <> a:32
+R22662:22665 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22662:22665 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22764:22766 Coq.Init.Logic <> not def
+R26527:26529 PLF.LibTactics <> eq' def
+R31757:31760 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31757:31760 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31915:31917 Coq.Init.Datatypes <> nil constr
+R31915:31917 Coq.Init.Datatypes <> nil constr
+R31945:31945 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R31961:31963 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R31946:31950 PLF.LibTactics <> boxer constr
+R31952:31960 PLF.LibTactics <> ltac_wild constr
+R31945:31945 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R31961:31963 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R31946:31950 PLF.LibTactics <> boxer constr
+R31952:31960 PLF.LibTactics <> ltac_wild constr
+R32000:32000 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32017:32019 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32001:32005 PLF.LibTactics <> boxer constr
+R32007:32016 PLF.LibTactics <> ltac_wilds constr
+R32000:32000 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32017:32019 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32001:32005 PLF.LibTactics <> boxer constr
+R32007:32016 PLF.LibTactics <> ltac_wilds constr
+R32048:32048 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32060:32062 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32050:32054 PLF.LibTactics <> boxer constr
+R32048:32048 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32060:32062 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32050:32054 PLF.LibTactics <> boxer constr
+R32033:32041 PLF.LibTactics <> ltac_wild constr
+R31930:31938 PLF.LibTactics <> ltac_wild constr
+R32342:32344 Coq.Init.Datatypes <> nil constr
+R32342:32344 Coq.Init.Datatypes <> nil constr
+R32382:32382 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32399:32401 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32383:32387 PLF.LibTactics <> boxer constr
+R32389:32398 PLF.LibTactics <> ltac_wilds constr
+R32382:32382 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32399:32401 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32383:32387 PLF.LibTactics <> boxer constr
+R32389:32398 PLF.LibTactics <> ltac_wilds constr
+R32455:32455 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32464:32466 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32456:32460 PLF.LibTactics <> boxer constr
+R32455:32455 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32464:32466 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R32456:32460 PLF.LibTactics <> boxer constr
+R32630:32638 PLF.LibTactics <> ltac_wild constr
+R32630:32638 PLF.LibTactics <> ltac_wild constr
+R33383:33386 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33383:33386 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32733:32741 PLF.LibTactics <> ltac_wild constr
+R32733:32741 PLF.LibTactics <> ltac_wild constr
+R33025:33028 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33025:33028 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33162:33165 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33162:33165 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32789:32792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32789:32792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34403:34406 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34403:34406 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34666:34668 Coq.Init.Datatypes <> nil constr
+R34666:34668 Coq.Init.Datatypes <> nil constr
+R34706:34706 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34723:34725 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34707:34711 PLF.LibTactics <> boxer constr
+R34713:34722 PLF.LibTactics <> ltac_wilds constr
+R34706:34706 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34723:34725 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34707:34711 PLF.LibTactics <> boxer constr
+R34713:34722 PLF.LibTactics <> ltac_wilds constr
+R34779:34779 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34788:34790 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34780:34784 PLF.LibTactics <> boxer constr
+R34779:34779 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34788:34790 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R34780:34784 PLF.LibTactics <> boxer constr
+R34954:34962 PLF.LibTactics <> ltac_wild constr
+R34954:34962 PLF.LibTactics <> ltac_wild constr
+R35958:35961 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35958:35961 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35057:35065 PLF.LibTactics <> ltac_wild constr
+R35057:35065 PLF.LibTactics <> ltac_wild constr
+R35451:35454 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35451:35454 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35663:35666 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35663:35666 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35113:35116 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35113:35116 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R38461:38461 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38474:38476 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38463:38467 PLF.LibTactics <> boxer constr
+R38461:38461 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38474:38476 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38463:38467 PLF.LibTactics <> boxer constr
+R38745:38745 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38758:38760 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38747:38751 PLF.LibTactics <> boxer constr
+R38745:38745 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38758:38760 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38747:38751 PLF.LibTactics <> boxer constr
+R38825:38825 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38837:38839 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38827:38831 PLF.LibTactics <> boxer constr
+R38930:38930 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38939:38941 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38931:38935 PLF.LibTactics <> boxer constr
+R38942:38942 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38951:38953 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38943:38947 PLF.LibTactics <> boxer constr
+R38930:38930 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38939:38941 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38931:38935 PLF.LibTactics <> boxer constr
+R38942:38942 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38951:38953 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R38943:38947 PLF.LibTactics <> boxer constr
+R39907:39909 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R39912:39912 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R39991:39993 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R39996:39996 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R39999:39999 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R40089:40091 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R40094:40094 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R40097:40097 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R40100:40100 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R40201:40203 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R40206:40206 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R40209:40209 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R40212:40212 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R40215:40215 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R40327:40329 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R40332:40332 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R40335:40335 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R40338:40338 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R40341:40341 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R40344:40344 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R41083:41085 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R41088:41088 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R41192:41194 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R41197:41197 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R41200:41200 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R41315:41317 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R41320:41320 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R41323:41323 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R41326:41326 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R41452:41454 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R41457:41457 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R41460:41460 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R41463:41463 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R41466:41466 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R41603:41605 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R41608:41608 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R41611:41611 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R41614:41614 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R41617:41617 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R41620:41620 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R42791:42795 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R42812:42812 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R42796:42796 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R42806:42808 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R42797:42801 PLF.LibTactics <> boxer constr
+R42803:42805 PLF.LibTactics <> ::ltac_scope:'___' not
+R42809:42811 Coq.Init.Datatypes <> nil constr
+R43321:43323 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R43326:43326 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R43413:43415 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R43418:43418 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R43421:43421 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R43519:43521 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R43524:43524 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R43527:43527 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R43530:43530 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R43639:43641 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R43644:43644 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R43647:43647 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R43650:43650 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R43653:43653 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R43773:43775 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R43778:43778 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R43781:43781 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R43784:43784 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R43787:43787 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R43790:43790 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R44569:44571 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R44574:44574 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R44686:44688 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R44691:44691 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R44694:44694 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R44817:44819 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R44822:44822 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R44825:44825 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R44828:44828 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R44962:44964 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R44967:44967 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R44970:44970 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R44973:44973 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R44976:44976 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R45121:45123 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R45126:45126 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R45129:45129 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R45132:45132 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R45135:45135 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R45138:45138 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R45502:45506 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R45523:45523 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R45507:45507 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R45517:45519 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R45508:45512 PLF.LibTactics <> boxer constr
+R45514:45516 PLF.LibTactics <> ::ltac_scope:'___' not
+R45520:45522 Coq.Init.Datatypes <> nil constr
+R45844:45848 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R45865:45865 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R45849:45849 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R45859:45861 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R45850:45854 PLF.LibTactics <> boxer constr
+R45856:45858 PLF.LibTactics <> ::ltac_scope:'___' not
+R45862:45864 Coq.Init.Datatypes <> nil constr
+R46412:46415 Coq.Init.Datatypes <> list ind
+R46417:46421 PLF.LibTactics <> Boxer ind
+R46412:46415 Coq.Init.Datatypes <> list ind
+R46417:46421 PLF.LibTactics <> Boxer ind
+R46627:46629 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R46632:46632 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R46709:46711 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R46714:46714 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R46717:46717 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R46805:46807 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R46810:46810 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R46813:46813 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R46816:46816 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R46915:46917 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R46920:46920 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R46923:46923 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R46926:46926 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R46929:46929 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R47039:47041 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R47044:47044 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R47047:47047 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R47050:47050 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R47053:47053 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R47056:47056 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R47431:47435 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R47452:47452 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R47436:47436 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R47446:47448 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R47437:47441 PLF.LibTactics <> boxer constr
+R47443:47445 PLF.LibTactics <> ::ltac_scope:'___' not
+R47449:47451 Coq.Init.Datatypes <> nil constr
+R47673:47676 Coq.Init.Datatypes <> list ind
+R47678:47682 PLF.LibTactics <> Boxer ind
+R47673:47676 Coq.Init.Datatypes <> list ind
+R47678:47682 PLF.LibTactics <> Boxer ind
+R47728:47730 PLF.LibTactics <> ::ltac_scope:'>>'_x not
+R47804:47806 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R47809:47809 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R47888:47890 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R47893:47893 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R47896:47896 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R47986:47988 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R47991:47991 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R47994:47994 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R47997:47997 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R48098:48100 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R48103:48103 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R48106:48106 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R48109:48109 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R48112:48112 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R48224:48226 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R48229:48229 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R48232:48232 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R48235:48235 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R48238:48238 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R48241:48241 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x_x not
+R48619:48619 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R48628:48630 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R48620:48624 PLF.LibTactics <> boxer constr
+R48889:48891 PLF.LibTactics <> ::ltac_scope:'___' not
+R49048:49050 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R49053:49053 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R49149:49151 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R49154:49154 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R49157:49157 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R49264:49266 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R49269:49269 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R49272:49272 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R49275:49275 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R49393:49395 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R49398:49398 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R49401:49401 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R49404:49404 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R49407:49407 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R49869:49872 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R49869:49872 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R49921:49922 PLF.LibTactics <> ::ltac_scope:'__' not
+sec 53122:53133 <> equatesLemma
+var 53147:53148 equatesLemma A0
+var 53150:53151 equatesLemma A1
+var 53173:53174 equatesLemma A2
+R53191:53192 PLF.LibTactics <> equatesLemma.A1 var
+binder 53186:53187 <> x1:35
+var 53214:53215 equatesLemma A3
+R53232:53233 PLF.LibTactics <> equatesLemma.A1 var
+binder 53227:53228 <> x1:37
+R53242:53243 PLF.LibTactics <> equatesLemma.A2 var
+R53245:53246 PLF.LibTactics <> x1:37 var
+binder 53237:53238 <> x2:38
+var 53268:53269 equatesLemma A4
+R53286:53287 PLF.LibTactics <> equatesLemma.A1 var
+binder 53281:53282 <> x1:40
+R53296:53297 PLF.LibTactics <> equatesLemma.A2 var
+R53299:53300 PLF.LibTactics <> x1:40 var
+binder 53291:53292 <> x2:41
+R53309:53310 PLF.LibTactics <> equatesLemma.A3 var
+R53312:53313 PLF.LibTactics <> x2:41 var
+binder 53304:53305 <> x3:42
+var 53335:53336 equatesLemma A5
+R53353:53354 PLF.LibTactics <> equatesLemma.A1 var
+binder 53348:53349 <> x1:44
+R53363:53364 PLF.LibTactics <> equatesLemma.A2 var
+R53366:53367 PLF.LibTactics <> x1:44 var
+binder 53358:53359 <> x2:45
+R53376:53377 PLF.LibTactics <> equatesLemma.A3 var
+R53379:53380 PLF.LibTactics <> x2:45 var
+binder 53371:53372 <> x3:46
+R53389:53390 PLF.LibTactics <> equatesLemma.A4 var
+R53392:53393 PLF.LibTactics <> x3:46 var
+binder 53384:53385 <> x4:47
+var 53415:53416 equatesLemma A6
+R53433:53434 PLF.LibTactics <> equatesLemma.A1 var
+binder 53428:53429 <> x1:49
+R53443:53444 PLF.LibTactics <> equatesLemma.A2 var
+R53446:53447 PLF.LibTactics <> x1:49 var
+binder 53438:53439 <> x2:50
+R53456:53457 PLF.LibTactics <> equatesLemma.A3 var
+R53459:53460 PLF.LibTactics <> x2:50 var
+binder 53451:53452 <> x3:51
+R53469:53470 PLF.LibTactics <> equatesLemma.A4 var
+R53472:53473 PLF.LibTactics <> x3:51 var
+binder 53464:53465 <> x4:52
+R53482:53483 PLF.LibTactics <> equatesLemma.A5 var
+R53485:53486 PLF.LibTactics <> x4:52 var
+binder 53477:53478 <> x5:53
+prf 53504:53512 <> equates_0
+binder 53524:53524 <> P:55
+binder 53526:53526 <> Q:56
+R53538:53541 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53547:53550 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53551:53551 PLF.LibTactics <> Q:56 var
+R53543:53545 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53542:53542 PLF.LibTactics <> P:55 var
+R53546:53546 PLF.LibTactics <> Q:56 var
+R53537:53537 PLF.LibTactics <> P:55 var
+prf 53594:53602 <> equates_1
+R53620:53621 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53618:53619 PLF.LibTactics <> equatesLemma.A0 var
+binder 53616:53616 <> P:57
+binder 53628:53629 <> x1:58
+binder 53631:53632 <> y1:59
+R53641:53644 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53652:53655 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53656:53656 PLF.LibTactics <> P:57 var
+R53658:53659 PLF.LibTactics <> x1:58 var
+R53647:53649 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53645:53646 PLF.LibTactics <> x1:58 var
+R53650:53651 PLF.LibTactics <> y1:59 var
+R53637:53637 PLF.LibTactics <> P:57 var
+R53639:53640 PLF.LibTactics <> y1:59 var
+prf 53702:53710 <> equates_2
+binder 53723:53724 <> y1:60
+R53731:53732 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53743:53744 PLF.LibTactics <> equatesLemma.A1 var
+binder 53740:53741 <> x1:61
+R53729:53730 PLF.LibTactics <> equatesLemma.A0 var
+binder 53727:53727 <> P:62
+binder 53753:53754 <> x1:63
+binder 53756:53757 <> x2:64
+R53769:53772 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53780:53783 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53784:53784 PLF.LibTactics <> P:62 var
+R53789:53790 PLF.LibTactics <> x2:64 var
+R53786:53787 PLF.LibTactics <> x1:63 var
+R53775:53777 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53773:53774 PLF.LibTactics <> x1:63 var
+R53778:53779 PLF.LibTactics <> y1:60 var
+R53762:53762 PLF.LibTactics <> P:62 var
+R53767:53768 PLF.LibTactics <> x2:64 var
+R53764:53765 PLF.LibTactics <> y1:60 var
+prf 53833:53841 <> equates_3
+binder 53854:53855 <> y1:65
+R53862:53863 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53874:53875 PLF.LibTactics <> equatesLemma.A1 var
+binder 53871:53872 <> x1:66
+R53881:53882 PLF.LibTactics <> equatesLemma.A2 var
+R53884:53885 PLF.LibTactics <> x1:66 var
+binder 53878:53879 <> x2:67
+R53860:53861 PLF.LibTactics <> equatesLemma.A0 var
+binder 53858:53858 <> P:68
+binder 53894:53895 <> x1:69
+binder 53897:53898 <> x2:70
+binder 53900:53901 <> x3:71
+R53916:53919 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53927:53930 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53931:53931 PLF.LibTactics <> P:68 var
+R53939:53940 PLF.LibTactics <> x3:71 var
+R53936:53937 PLF.LibTactics <> x2:70 var
+R53933:53934 PLF.LibTactics <> x1:69 var
+R53922:53924 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53920:53921 PLF.LibTactics <> x1:69 var
+R53925:53926 PLF.LibTactics <> y1:65 var
+R53906:53906 PLF.LibTactics <> P:68 var
+R53914:53915 PLF.LibTactics <> x3:71 var
+R53911:53912 PLF.LibTactics <> x2:70 var
+R53908:53909 PLF.LibTactics <> y1:65 var
+prf 53983:53991 <> equates_4
+binder 54004:54005 <> y1:72
+R54012:54013 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54024:54025 PLF.LibTactics <> equatesLemma.A1 var
+binder 54021:54022 <> x1:73
+R54031:54032 PLF.LibTactics <> equatesLemma.A2 var
+R54034:54035 PLF.LibTactics <> x1:73 var
+binder 54028:54029 <> x2:74
+R54041:54042 PLF.LibTactics <> equatesLemma.A3 var
+R54044:54045 PLF.LibTactics <> x2:74 var
+binder 54038:54039 <> x3:75
+R54010:54011 PLF.LibTactics <> equatesLemma.A0 var
+binder 54008:54008 <> P:76
+binder 54054:54055 <> x1:77
+binder 54057:54058 <> x2:78
+binder 54060:54061 <> x3:79
+binder 54063:54064 <> x4:80
+R54082:54085 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54093:54096 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54097:54097 PLF.LibTactics <> P:76 var
+R54108:54109 PLF.LibTactics <> x4:80 var
+R54105:54106 PLF.LibTactics <> x3:79 var
+R54102:54103 PLF.LibTactics <> x2:78 var
+R54099:54100 PLF.LibTactics <> x1:77 var
+R54088:54090 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54086:54087 PLF.LibTactics <> x1:77 var
+R54091:54092 PLF.LibTactics <> y1:72 var
+R54069:54069 PLF.LibTactics <> P:76 var
+R54080:54081 PLF.LibTactics <> x4:80 var
+R54077:54078 PLF.LibTactics <> x3:79 var
+R54074:54075 PLF.LibTactics <> x2:78 var
+R54071:54072 PLF.LibTactics <> y1:72 var
+prf 54152:54160 <> equates_5
+binder 54173:54174 <> y1:81
+R54181:54182 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54193:54194 PLF.LibTactics <> equatesLemma.A1 var
+binder 54190:54191 <> x1:82
+R54200:54201 PLF.LibTactics <> equatesLemma.A2 var
+R54203:54204 PLF.LibTactics <> x1:82 var
+binder 54197:54198 <> x2:83
+R54210:54211 PLF.LibTactics <> equatesLemma.A3 var
+R54213:54214 PLF.LibTactics <> x2:83 var
+binder 54207:54208 <> x3:84
+R54220:54221 PLF.LibTactics <> equatesLemma.A4 var
+R54223:54224 PLF.LibTactics <> x3:84 var
+binder 54217:54218 <> x4:85
+R54179:54180 PLF.LibTactics <> equatesLemma.A0 var
+binder 54177:54177 <> P:86
+binder 54233:54234 <> x1:87
+binder 54236:54237 <> x2:88
+binder 54239:54240 <> x3:89
+binder 54242:54243 <> x4:90
+binder 54245:54246 <> x5:91
+R54267:54270 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54278:54281 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54282:54282 PLF.LibTactics <> P:86 var
+R54296:54297 PLF.LibTactics <> x5:91 var
+R54293:54294 PLF.LibTactics <> x4:90 var
+R54290:54291 PLF.LibTactics <> x3:89 var
+R54287:54288 PLF.LibTactics <> x2:88 var
+R54284:54285 PLF.LibTactics <> x1:87 var
+R54273:54275 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54271:54272 PLF.LibTactics <> x1:87 var
+R54276:54277 PLF.LibTactics <> y1:81 var
+R54251:54251 PLF.LibTactics <> P:86 var
+R54265:54266 PLF.LibTactics <> x5:91 var
+R54262:54263 PLF.LibTactics <> x4:90 var
+R54259:54260 PLF.LibTactics <> x3:89 var
+R54256:54257 PLF.LibTactics <> x2:88 var
+R54253:54254 PLF.LibTactics <> y1:81 var
+prf 54340:54348 <> equates_6
+binder 54361:54362 <> y1:92
+R54369:54370 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54381:54382 PLF.LibTactics <> equatesLemma.A1 var
+binder 54378:54379 <> x1:93
+R54388:54389 PLF.LibTactics <> equatesLemma.A2 var
+R54391:54392 PLF.LibTactics <> x1:93 var
+binder 54385:54386 <> x2:94
+R54398:54399 PLF.LibTactics <> equatesLemma.A3 var
+R54401:54402 PLF.LibTactics <> x2:94 var
+binder 54395:54396 <> x3:95
+R54408:54409 PLF.LibTactics <> equatesLemma.A4 var
+R54411:54412 PLF.LibTactics <> x3:95 var
+binder 54405:54406 <> x4:96
+R54418:54419 PLF.LibTactics <> equatesLemma.A5 var
+R54421:54422 PLF.LibTactics <> x4:96 var
+binder 54415:54416 <> x5:97
+R54367:54368 PLF.LibTactics <> equatesLemma.A0 var
+binder 54365:54365 <> P:98
+binder 54433:54434 <> x1:99
+binder 54436:54437 <> x2:100
+binder 54439:54440 <> x3:101
+binder 54442:54443 <> x4:102
+binder 54445:54446 <> x5:103
+binder 54448:54449 <> x6:104
+R54473:54476 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54484:54487 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54488:54488 PLF.LibTactics <> P:98 var
+R54505:54506 PLF.LibTactics <> x6:104 var
+R54502:54503 PLF.LibTactics <> x5:103 var
+R54499:54500 PLF.LibTactics <> x4:102 var
+R54496:54497 PLF.LibTactics <> x3:101 var
+R54493:54494 PLF.LibTactics <> x2:100 var
+R54490:54491 PLF.LibTactics <> x1:99 var
+R54479:54481 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R54477:54478 PLF.LibTactics <> x1:99 var
+R54482:54483 PLF.LibTactics <> y1:92 var
+R54454:54454 PLF.LibTactics <> P:98 var
+R54471:54472 PLF.LibTactics <> x6:104 var
+R54468:54469 PLF.LibTactics <> x5:103 var
+R54465:54466 PLF.LibTactics <> x4:102 var
+R54462:54463 PLF.LibTactics <> x3:101 var
+R54459:54460 PLF.LibTactics <> x2:100 var
+R54456:54457 PLF.LibTactics <> y1:92 var
+R54547:54558 PLF.LibTactics equatesLemma <> sec
+R54800:54808 PLF.LibTactics <> equates_6 thm
+R54772:54780 PLF.LibTactics <> equates_5 thm
+R54744:54752 PLF.LibTactics <> equates_4 thm
+R54716:54724 PLF.LibTactics <> equates_3 thm
+R54688:54696 PLF.LibTactics <> equates_2 thm
+R54660:54668 PLF.LibTactics <> equates_1 thm
+R54632:54640 PLF.LibTactics <> equates_0 thm
+R54959:54967 Coq.Lists.List <> list syndef
+R54969:54973 PLF.LibTactics <> Boxer ind
+R54959:54967 Coq.Lists.List <> list syndef
+R54969:54973 PLF.LibTactics <> Boxer ind
+R55008:55008 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R55016:55018 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R55009:55013 PLF.LibTactics <> boxer constr
+R55019:55021 Coq.Init.Datatypes <> nil constr
+R55082:55084 Coq.Init.Datatypes <> nil constr
+R55082:55084 Coq.Init.Datatypes <> nil constr
+R55104:55104 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R55113:55115 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R55105:55109 PLF.LibTactics <> boxer constr
+R55104:55104 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R55113:55115 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R55105:55109 PLF.LibTactics <> boxer constr
+R55338:55340 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R55343:55343 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R55422:55424 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R55427:55427 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R55430:55430 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R55520:55522 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R55525:55525 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R55528:55528 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R55531:55531 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R55830:55832 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R55835:55835 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R55930:55932 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R55935:55935 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R55938:55938 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R56044:56046 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R56049:56049 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R56052:56052 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R56055:56055 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R57698:57700 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R57702:57702 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R57776:57778 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R57780:57780 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R57783:57783 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R57868:57870 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R57872:57872 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R57875:57875 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R57878:57878 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R57974:57976 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R57978:57978 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R57981:57981 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R57984:57984 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R57987:57987 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R59269:59272 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R59269:59272 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R60295:60298 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R60295:60298 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R60675:60678 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R60675:60678 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R60775:60778 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R60775:60778 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R61372:61375 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R61372:61375 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R66573:66576 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R66573:66576 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R66599:66602 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R66599:66602 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R66797:66800 Coq.Init.Datatypes <> true constr
+R66797:66800 Coq.Init.Datatypes <> true constr
+R66818:66822 Coq.Init.Datatypes <> false constr
+R66818:66822 Coq.Init.Datatypes <> false constr
+R71798:71800 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R71878:71880 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R77413:77421 Coq.Lists.List <> list syndef
+R77423:77427 PLF.LibTactics <> Boxer ind
+R77413:77421 Coq.Lists.List <> list syndef
+R77423:77427 PLF.LibTactics <> Boxer ind
+R81318:81320 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81318:81320 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81462:81464 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81462:81464 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81616:81618 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81616:81618 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81782:81784 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81782:81784 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R82330:82332 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R82479:82481 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R82800:82802 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R82963:82965 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R83418:83420 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R83530:83532 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R83646:83648 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R85599:85601 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R85599:85601 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R89819:89820 Coq.Init.Datatypes <> tt constr
+R89827:89828 Coq.Init.Datatypes <> tt constr
+not 89795:89795 <> :::'nosimpl'_x
+R90270:90272 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90270:90272 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90586:90588 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90586:90588 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91796:91798 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91785:91785 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91787:91787 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91789:91789 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91791:91791 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91793:91793 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91795:91795 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91799:91799 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91801:91801 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91803:91803 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91805:91805 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91807:91807 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91809:91809 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91796:91798 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91785:91785 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91787:91787 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91789:91789 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91791:91791 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91793:91793 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91795:91795 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91799:91799 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91801:91801 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91803:91803 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91805:91805 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91807:91807 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91809:91809 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91870:91872 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91861:91861 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91863:91863 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91865:91865 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91867:91867 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91869:91869 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91873:91873 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91875:91875 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91877:91877 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91879:91879 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91881:91881 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91870:91872 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91861:91861 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91863:91863 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91865:91865 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91867:91867 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91869:91869 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91873:91873 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91875:91875 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91877:91877 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91879:91879 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91881:91881 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91940:91942 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91933:91933 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91935:91935 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91937:91937 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91939:91939 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91943:91943 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91945:91945 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91947:91947 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91949:91949 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91940:91942 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91933:91933 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91935:91935 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91937:91937 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91939:91939 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91943:91943 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91945:91945 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91947:91947 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R91949:91949 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92006:92008 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R92001:92001 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92003:92003 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92005:92005 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92009:92009 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92011:92011 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92013:92013 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92006:92008 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R92001:92001 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92003:92003 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92005:92005 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92009:92009 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92011:92011 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92013:92013 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R92067:92069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R92067:92069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R92090:92092 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R92090:92092 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R93017:93032 Coq.Logic.ProofIrrelevance <> <> lib
+R93427:93443 Coq.Logic.ProofIrrelevance <> proof_irrelevance prfax
+R94036:94038 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94029:94029 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94031:94031 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94033:94033 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94035:94035 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94039:94039 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94041:94041 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94043:94043 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94045:94045 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94036:94038 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94029:94029 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94031:94031 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94033:94033 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94035:94035 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94039:94039 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94041:94041 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94043:94043 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94045:94045 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94069:94071 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94060:94060 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94062:94062 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94064:94064 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94066:94066 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94068:94068 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94072:94072 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94074:94074 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94076:94076 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94078:94078 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94080:94080 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94069:94071 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94060:94060 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94062:94062 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94064:94064 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94066:94066 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94068:94068 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94072:94072 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94074:94074 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94076:94076 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94078:94078 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94080:94080 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94106:94108 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94095:94095 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94097:94097 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94099:94099 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94101:94101 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94103:94103 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94105:94105 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94109:94109 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94111:94111 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94113:94113 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94115:94115 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94117:94117 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94119:94119 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94106:94108 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94095:94095 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94097:94097 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94099:94099 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94101:94101 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94103:94103 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94105:94105 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94109:94109 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94111:94111 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94113:94113 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94115:94115 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94117:94117 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94119:94119 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94147:94149 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94134:94134 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94136:94136 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94138:94138 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94140:94140 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94142:94142 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94144:94144 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94146:94146 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94150:94150 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94152:94152 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94154:94154 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94156:94156 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94158:94158 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94160:94160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94162:94162 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94147:94149 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94134:94134 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94136:94136 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94138:94138 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94140:94140 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94142:94142 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94144:94144 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94146:94146 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94150:94150 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94152:94152 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94154:94154 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94156:94156 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94158:94158 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94160:94160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94162:94162 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R94615:94631 Coq.Logic.ProofIrrelevance <> proof_irrelevance prfax
+R95291:95299 PLF.LibTactics <> ltac_mark constr
+ax 97216:97224 <> inj_pair2
+binder 97296:97296 <> U:105
+R97312:97315 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97311:97311 PLF.LibTactics <> U:105 var
+binder 97307:97307 <> P:106
+R97327:97327 PLF.LibTactics <> U:105 var
+binder 97323:97323 <> p:107
+R97337:97337 PLF.LibTactics <> P:106 var
+R97339:97339 PLF.LibTactics <> p:107 var
+binder 97331:97331 <> x:108
+binder 97333:97333 <> y:109
+R97372:97375 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97377:97379 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R97376:97376 PLF.LibTactics <> x:108 var
+R97380:97380 PLF.LibTactics <> y:109 var
+R97357:97359 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R97345:97350 Coq.Init.Specif <> existT constr
+R97356:97356 PLF.LibTactics <> x:108 var
+R97354:97354 PLF.LibTactics <> p:107 var
+R97352:97352 PLF.LibTactics <> P:106 var
+R97360:97365 Coq.Init.Specif <> existT constr
+R97371:97371 PLF.LibTactics <> y:109 var
+R97369:97369 PLF.LibTactics <> p:107 var
+R97367:97367 PLF.LibTactics <> P:106 var
+R97559:97562 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97550:97558 PLF.LibTactics <> ltac_Mark ind
+R97559:97562 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97550:97558 PLF.LibTactics <> ltac_Mark ind
+R97595:97598 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97590:97592 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R97595:97598 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97590:97592 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R97786:97789 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97768:97770 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R97753:97758 Coq.Init.Specif <> existT constr
+R97771:97776 Coq.Init.Specif <> existT constr
+R97786:97789 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97768:97770 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R97753:97758 Coq.Init.Specif <> existT constr
+R97771:97776 Coq.Init.Specif <> existT constr
+R97936:97939 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97936:97939 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R97861:97869 PLF.LibTactics <> inj_pair2 prfax
+R98060:98068 PLF.LibTactics <> ltac_mark constr
+R98117:98119 PLF.LibTactics <> eq' def
+R101998:102001 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R101989:101997 PLF.LibTactics <> ltac_Mark ind
+R101998:102001 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R101989:101997 PLF.LibTactics <> ltac_Mark ind
+R102034:102037 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R102029:102031 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R102034:102037 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R102029:102031 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R102210:102213 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R102192:102194 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R102177:102182 Coq.Init.Specif <> existT constr
+R102195:102200 Coq.Init.Specif <> existT constr
+R102210:102213 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R102192:102194 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R102177:102182 Coq.Init.Specif <> existT constr
+R102195:102200 Coq.Init.Specif <> existT constr
+R102285:102293 PLF.LibTactics <> inj_pair2 prfax
+R102447:102455 PLF.LibTactics <> ltac_mark constr
+R102484:102492 PLF.LibTactics <> ltac_mark constr
+R102547:102564 PLF.LibTactics <> ltac_to_generalize def
+R102576:102578 PLF.LibTactics <> eq' def
+R104554:104557 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R104545:104553 PLF.LibTactics <> ltac_Mark ind
+R104554:104557 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R104545:104553 PLF.LibTactics <> ltac_Mark ind
+R104590:104593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R104585:104587 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R104590:104593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R104585:104587 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R104755:104763 PLF.LibTactics <> ltac_mark constr
+R109040:109040 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R109042:109044 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R109046:109046 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R109040:109040 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R109042:109044 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R109046:109046 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R110087:110087 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R110089:110091 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R110093:110093 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R110087:110087 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R110089:110091 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R110093:110093 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R112884:112886 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R112884:112886 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R113934:113934 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R113936:113938 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R113940:113940 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R113934:113934 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R113936:113938 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R113940:113940 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R114656:114671 Coq.Program.Equality <> <> lib
+R114708:114710 PLF.LibTactics <> eq' def
+R117251:117254 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R117257:117260 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R117251:117254 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R117257:117260 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R117527:117542 Coq.Init.Wf <> well_founded_ind thm
+R117312:117327 Coq.Init.Wf <> well_founded_ind thm
+R118226:118242 Coq.Arith.Compare_dec <> <> lib
+R118269:118271 Coq.micromega.Lia <> <> lib
+prf 118281:118298 <> induct_height_max2
+R118317:118319 Coq.Init.Datatypes <> nat ind
+binder 118309:118310 <> n1:111
+binder 118312:118313 <> n2:112
+R118324:118330 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R118332:118333 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 118331:118331 <> n:113
+R118340:118343 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R118336:118338 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R118334:118335 PLF.LibTactics <> n1:111 var
+R118339:118339 PLF.LibTactics <> n:113 var
+R118346:118348 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R118344:118345 PLF.LibTactics <> n2:112 var
+R118349:118349 PLF.LibTactics <> n:113 var
+R118385:118390 Coq.Arith.Compare_dec <> lt_dec thm
+R118385:118390 Coq.Arith.Compare_dec <> lt_dec thm
+R118410:118410 Coq.Init.Datatypes <> S constr
+R118410:118410 Coq.Init.Datatypes <> S constr
+R118432:118432 Coq.Init.Datatypes <> S constr
+R118432:118432 Coq.Init.Datatypes <> S constr
+R118504:118510 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R118512:118513 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R118504:118510 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R118512:118513 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R118689:118689 Coq.Init.Datatypes <> S constr
+R118622:118639 PLF.LibTactics <> induct_height_max2 thm
+def 119103:119107 <> COIND
+binder 119110:119110 <> P:114
+R119121:119121 PLF.LibTactics <> P:114 var
+R119220:119224 PLF.LibTactics <> COIND def
+R119397:119401 PLF.LibTactics <> COIND def
+R119397:119401 PLF.LibTactics <> COIND def
+prf 120589:120602 <> iff_intro_swap
+binder 120614:120614 <> P:115
+binder 120616:120616 <> Q:116
+R120629:120629 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120636:120640 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120641:120641 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120648:120653 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120661:120661 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120655:120659 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R120654:120654 PLF.LibTactics <> P:115 var
+R120660:120660 PLF.LibTactics <> Q:116 var
+R120643:120646 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120647:120647 PLF.LibTactics <> Q:116 var
+R120642:120642 PLF.LibTactics <> P:115 var
+R120631:120634 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R120635:120635 PLF.LibTactics <> P:115 var
+R120630:120630 PLF.LibTactics <> Q:116 var
+R121005:121018 PLF.LibTactics <> iff_intro_swap thm
+R121434:121434 Coq.Init.Datatypes <> O constr
+R121434:121434 Coq.Init.Datatypes <> O constr
+R121448:121448 Coq.Init.Datatypes <> S constr
+R121450:121450 Coq.Init.Datatypes <> O constr
+R121448:121448 Coq.Init.Datatypes <> S constr
+R121450:121450 Coq.Init.Datatypes <> O constr
+R121465:121465 Coq.Init.Datatypes <> S constr
+R121465:121465 Coq.Init.Datatypes <> S constr
+R121574:121577 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121574:121577 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121712:121715 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121717:121720 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121722:121725 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121727:121730 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121732:121735 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121737:121740 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121742:121745 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121712:121715 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121717:121720 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121722:121725 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121727:121730 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121732:121735 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121737:121740 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121742:121745 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121767:121770 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121772:121775 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121777:121780 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121782:121785 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121787:121790 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121792:121795 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121767:121770 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121772:121775 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121777:121780 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121782:121785 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121787:121790 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121792:121795 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121817:121820 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121822:121825 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121827:121830 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121832:121835 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121837:121840 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121817:121820 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121822:121825 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121827:121830 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121832:121835 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121837:121840 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121862:121865 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121867:121870 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121872:121875 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121877:121880 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121862:121865 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121867:121870 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121872:121875 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121877:121880 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121902:121905 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121907:121910 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121912:121915 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121902:121905 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121907:121910 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121912:121915 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121937:121940 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121942:121945 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121937:121940 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121942:121945 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121967:121970 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121967:121970 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121992:121995 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R121992:121995 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R124136:124136 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124138:124138 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124140:124140 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124136:124136 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124138:124138 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124140:124140 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124156:124156 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124158:124158 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124160:124160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124156:124156 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124158:124158 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124160:124160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124176:124176 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124178:124178 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124180:124180 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124176:124176 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124178:124178 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124180:124180 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124195:124195 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124197:124197 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124199:124199 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124195:124195 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124197:124197 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124199:124199 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124213:124213 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124219:124220 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124226:124226 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124214:124214 Coq.Init.Datatypes <> S constr
+R124221:124221 Coq.Init.Datatypes <> S constr
+R124213:124213 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124219:124220 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124226:124226 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124214:124214 Coq.Init.Datatypes <> S constr
+R124221:124221 Coq.Init.Datatypes <> S constr
+R124120:124120 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124122:124122 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124124:124124 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R124330:124333 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124330:124333 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124468:124471 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124473:124476 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124478:124481 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124483:124486 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124488:124491 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124493:124496 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124498:124501 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124468:124471 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124473:124476 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124478:124481 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124483:124486 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124488:124491 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124493:124496 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124498:124501 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124523:124526 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124528:124531 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124533:124536 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124538:124541 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124543:124546 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124548:124551 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124523:124526 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124528:124531 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124533:124536 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124538:124541 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124543:124546 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124548:124551 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124573:124576 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124578:124581 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124583:124586 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124588:124591 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124593:124596 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124573:124576 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124578:124581 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124583:124586 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124588:124591 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124593:124596 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124618:124621 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124623:124626 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124628:124631 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124633:124636 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124618:124621 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124623:124626 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124628:124631 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124633:124636 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124658:124661 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124663:124666 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124668:124671 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124658:124661 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124663:124666 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124668:124671 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124693:124696 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124698:124701 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124693:124696 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124698:124701 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124723:124726 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124723:124726 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R124748:124751 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R124748:124751 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R127022:127025 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R127022:127025 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R127257:127263 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127287:127288 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127264:127265 <> x1:117
+binder 127267:127268 <> x2:118
+binder 127270:127271 <> x3:119
+binder 127273:127274 <> x4:120
+binder 127276:127277 <> x5:121
+binder 127279:127280 <> x6:122
+binder 127282:127283 <> x7:123
+binder 127285:127286 <> x8:124
+R127257:127263 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127287:127288 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127264:127265 <> x1:125
+binder 127267:127268 <> x2:126
+binder 127270:127271 <> x3:127
+binder 127273:127274 <> x4:128
+binder 127276:127277 <> x5:129
+binder 127279:127280 <> x6:130
+binder 127282:127283 <> x7:131
+binder 127285:127286 <> x8:132
+R127309:127315 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127336:127337 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127316:127317 <> x1:133
+binder 127319:127320 <> x2:134
+binder 127322:127323 <> x3:135
+binder 127325:127326 <> x4:136
+binder 127328:127329 <> x5:137
+binder 127331:127332 <> x6:138
+binder 127334:127335 <> x7:139
+R127309:127315 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127336:127337 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127316:127317 <> x1:140
+binder 127319:127320 <> x2:141
+binder 127322:127323 <> x3:142
+binder 127325:127326 <> x4:143
+binder 127328:127329 <> x5:144
+binder 127331:127332 <> x6:145
+binder 127334:127335 <> x7:146
+R127358:127364 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127382:127383 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127365:127366 <> x1:147
+binder 127368:127369 <> x2:148
+binder 127371:127372 <> x3:149
+binder 127374:127375 <> x4:150
+binder 127377:127378 <> x5:151
+binder 127380:127381 <> x6:152
+R127358:127364 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127382:127383 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127365:127366 <> x1:153
+binder 127368:127369 <> x2:154
+binder 127371:127372 <> x3:155
+binder 127374:127375 <> x4:156
+binder 127377:127378 <> x5:157
+binder 127380:127381 <> x6:158
+R127404:127410 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127425:127426 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127411:127412 <> x1:159
+binder 127414:127415 <> x2:160
+binder 127417:127418 <> x3:161
+binder 127420:127421 <> x4:162
+binder 127423:127424 <> x5:163
+R127404:127410 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127425:127426 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127411:127412 <> x1:164
+binder 127414:127415 <> x2:165
+binder 127417:127418 <> x3:166
+binder 127420:127421 <> x4:167
+binder 127423:127424 <> x5:168
+R127447:127453 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127465:127466 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127454:127455 <> x1:169
+binder 127457:127458 <> x2:170
+binder 127460:127461 <> x3:171
+binder 127463:127464 <> x4:172
+R127447:127453 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127465:127466 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127454:127455 <> x1:173
+binder 127457:127458 <> x2:174
+binder 127460:127461 <> x3:175
+binder 127463:127464 <> x4:176
+R127487:127493 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127502:127503 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127494:127495 <> x1:177
+binder 127497:127498 <> x2:178
+binder 127500:127501 <> x3:179
+R127487:127493 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127502:127503 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127494:127495 <> x1:180
+binder 127497:127498 <> x2:181
+binder 127500:127501 <> x3:182
+R127524:127530 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127536:127537 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127531:127532 <> x1:183
+binder 127534:127535 <> x2:184
+R127524:127530 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127536:127537 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127531:127532 <> x1:185
+binder 127534:127535 <> x2:186
+R127558:127564 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127567:127568 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127565:127566 <> x1:187
+R127558:127564 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R127567:127568 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 127565:127566 <> x1:188
+R127590:127593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R127590:127593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R128366:128374 PLF.LibTactics <> ltac_wild constr
+R128366:128374 PLF.LibTactics <> ltac_wild constr
+R128390:128399 PLF.LibTactics <> ltac_wilds constr
+R128390:128399 PLF.LibTactics <> ltac_wilds constr
+R130196:130196 Coq.Init.Datatypes <> S constr
+R130196:130196 Coq.Init.Datatypes <> S constr
+R130777:130780 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R130777:130780 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R130809:130816 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R130827:130829 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 130817:130823 <> varname:189
+R130809:130816 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R130827:130829 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 130817:130823 <> varname:190
+R131039:131042 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R131039:131042 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R131202:131209 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R131220:131222 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 131210:131216 <> varname:191
+R131202:131209 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R131220:131222 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 131210:131216 <> varname:192
+R135961:135965 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R135961:135965 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R138695:138697 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R138700:138700 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R138780:138782 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R138785:138785 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R138788:138788 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R138879:138881 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R138884:138884 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R138887:138887 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R138890:138890 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R138992:138994 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R138997:138997 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R139000:139000 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R139003:139003 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R139006:139006 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R153355:153357 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R153360:153360 PLF.LibTactics <> ::ltac_scope:'>>'_x_x not
+R153440:153442 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R153445:153445 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R153448:153448 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x not
+R153539:153541 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R153544:153544 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R153547:153547 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R153550:153550 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x not
+R153652:153654 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R153657:153657 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R153660:153660 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R153663:153663 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+R153666:153666 PLF.LibTactics <> ::ltac_scope:'>>'_x_x_x_x_x not
+def 165883:165896 <> ltac_something
+binder 165899:165899 <> P:193
+R165910:165910 PLF.LibTactics <> P:193 var
+binder 165908:165908 <> e:194
+R165916:165916 PLF.LibTactics <> e:194 var
+R165950:165963 PLF.LibTactics <> ltac_something def
+not 165929:165929 <> :::'Something'
+prf 165978:165994 <> ltac_something_eq
+binder 166006:166006 <> e:195
+R166018:166021 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R166041:166041 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R166017:166017 PLF.LibTactics <> e:195 var
+R166023:166036 PLF.LibTactics <> ltac_something def
+R166040:166040 PLF.LibTactics <> e:195 var
+prf 166075:166093 <> ltac_something_hide
+binder 166105:166105 <> e:196
+R166117:166121 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R166141:166141 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R166123:166136 PLF.LibTactics <> ltac_something def
+R166140:166140 PLF.LibTactics <> e:196 var
+R166116:166116 PLF.LibTactics <> e:196 var
+prf 166175:166193 <> ltac_something_show
+binder 166205:166205 <> e:197
+R166216:166216 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R166236:166240 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R166241:166241 PLF.LibTactics <> e:197 var
+R166218:166231 PLF.LibTactics <> ltac_something def
+R166235:166235 PLF.LibTactics <> e:197 var
+R166483:166496 PLF.LibTactics <> ltac_something def
+R166623:166636 PLF.LibTactics <> ltac_something def
+R166623:166636 PLF.LibTactics <> ltac_something def
+R166767:166780 PLF.LibTactics <> ltac_something def
+R166834:166847 PLF.LibTactics <> ltac_something def
+R166903:166916 PLF.LibTactics <> ltac_something def
+R167084:167097 PLF.LibTactics <> ltac_something def
+R167084:167097 PLF.LibTactics <> ltac_something def
+R167140:167153 PLF.LibTactics <> ltac_something def
+R167244:167257 PLF.LibTactics <> ltac_something def
+R167244:167257 PLF.LibTactics <> ltac_something def
+R167286:167299 PLF.LibTactics <> ltac_something def
+R167286:167299 PLF.LibTactics <> ltac_something def
+R167581:167599 PLF.LibTactics <> ltac_something_show thm
+R167653:167671 PLF.LibTactics <> ltac_something_hide thm
+R167840:167853 PLF.LibTactics <> ltac_something def
+R167840:167853 PLF.LibTactics <> ltac_something def
+R168021:168034 PLF.LibTactics <> ltac_something def
+R168021:168034 PLF.LibTactics <> ltac_something def
+R168523:168536 PLF.LibTactics <> ltac_something def
+R168788:168801 PLF.LibTactics <> ltac_something def
+R168861:168874 PLF.LibTactics <> ltac_something def
+R168861:168874 PLF.LibTactics <> ltac_something def
+R168929:168942 PLF.LibTactics <> ltac_something def
+R169017:169030 PLF.LibTactics <> ltac_something def
+R169107:169120 PLF.LibTactics <> ltac_something def
+R169107:169120 PLF.LibTactics <> ltac_something def
+R169192:169205 PLF.LibTactics <> ltac_something def
+R171914:171922 PLF.LibTactics <> ltac_mark constr
+R172149:172157 PLF.LibTactics <> ltac_mark constr
+prf 172856:172885 <> demo_clears_all_and_clears_but
+R172902:172904 Coq.Init.Datatypes <> nat ind
+binder 172898:172898 <> x:198
+binder 172900:172900 <> y:199
+R172912:172915 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R172921:172924 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R172931:172934 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R172940:172943 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R172944:172947 Coq.Init.Logic <> True ind
+R172936:172938 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R172935:172935 PLF.LibTactics <> x:198 var
+R172926:172929 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R172925:172925 PLF.LibTactics <> x:198 var
+R172917:172919 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R172916:172916 PLF.LibTactics <> x:198 var
+R172920:172920 PLF.LibTactics <> x:198 var
+R172908:172910 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R172907:172907 PLF.LibTactics <> y:199 var
+R173504:173504 Coq.Init.Datatypes <> S constr
+R173504:173504 Coq.Init.Datatypes <> S constr
+ind 176116:176135 <> ltac_goal_to_discard
+constr 176140:176165 <> ltac_goal_to_discard_intro
+R176262:176287 PLF.LibTactics <> ltac_goal_to_discard_intro constr
+R176403:176422 PLF.LibTactics <> ltac_goal_to_discard ind
+R176403:176422 PLF.LibTactics <> ltac_goal_to_discard ind
+mod 176978:177000 <> LibTacticsCompatibility
+R177130:177152 PLF.LibTactics LibTacticsCompatibility <> mod
