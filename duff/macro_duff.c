@@ -1,3 +1,4 @@
+// duff machines may not be in a typical form
 
 #define DUFF_DEVICE_8(aCount, aAction)  \
     do {\

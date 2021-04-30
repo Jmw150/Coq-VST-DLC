@@ -13,7 +13,7 @@ Module Info.
   Definition abi := "standard".
   Definition bitsize := 64.
   Definition big_endian := false.
-  Definition source_file := "duff2.c".
+  Definition source_file := "duff_to_goto_example.c".
   Definition normalized := false.
 End Info.
 
