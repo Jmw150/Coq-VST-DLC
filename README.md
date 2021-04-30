@@ -8,6 +8,10 @@
     
         + Sound may not automatically mean safe in this case
 
+-  goto statements.
+
+    * parses at least, does not recognize loop tactics
+
 -  structured switch statements (Duff's device).
 
     * Could be done in theory I think (without performance cost)
@@ -21,8 +25,5 @@
     
     * Reasoning About Recursive Tree Traversals' RETREET?
 
--  goto statements.
-
-    * parses at least, does not recognize loop tactics
 
 
