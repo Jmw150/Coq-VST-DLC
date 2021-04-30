@@ -2,7 +2,7 @@
 
 -  casting between integers and pointers.
 
--- l
+    * l
 
 -  struct-copying assignments, struct parameters, or struct returns.
 
