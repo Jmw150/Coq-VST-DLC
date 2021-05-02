@@ -23,248 +23,268 @@ bool isalnum_case(char a) { return (isalnum(a) or (a == '_')); }
 // Lexer
 // {
 // This kind of lexer returns char values [0-255] if unknown to the grammar, negative if known
-token_num = 0; // keep track of tokens
-class Token
-{
-public:
-    string str;
-    int ch; // for case jumps
 
-    Token(string name) { str=name; ch=(--token_num); }
-
-    // make easy to print
-    friend ostream& operator<<(ostream& os, const Token_base& tb)
-    {
-        os << tb.str;
-        return os;
-    }
-};
-
-
-
-/*
-    
-    // end of file
-    _eof = -1;
-
-    _identifier = -2;
-    _number = -3;
-
-    // recursive type
-    _struct = -4;
-
-    // base types
-    _bool = -5;
-    _char = -7;
-    _int = -8;
-    _float = -9;
-    _double = -10;
-    _short = -11;
-    _long = -12;
-    _signed = -13;
-    _unsigned = -14;
-
-    _return = -15;
-*/
+int t_num = 0; // keep track of tokens
 
 class Scan
 {
-
-
-};
-
-// lexer portion
-//// skips: whitespace, comments
-queue<int> scan(string input)
-{
-    queue<int> tokens;
-    for(int i = 0 ; i < input.length() ; i++)
+    class Token
     {
-        // whitespace
-        while(isspace(input[i]) and i < input.length())
+    public:
+        string str;
+        int ch; // for case jumps
+
+        Token(string name)
         {
-            i++;
+            str = name;
+            ch = (t_num);
+            t_num--;
+        }
+        Token(char name)
+        {
+            str = name;
+            ch = (t_num);
+            t_num--;
         }
 
-        // comments, or division
-        if(i < input.length() - 1) // able to look ahead
+        // make easy to print
+        friend ostream& operator<<(ostream& os, const Token& tb)
         {
-            // multiline comment
-            if(input[i] == '/' and input[i + 1] == '*')
+            os << tb.str;
+            return os;
+        }
+    };
+
+public:
+    // should only have to name these once
+    Token t_eof{"eof"};
+    Token t_identifier{"identifier"};
+    Token t_number{"number"};
+    Token t_struct{"struct"};
+    Token t_bool{"bool"};
+    Token t_char{"char"};
+    Token t_int{"int"};
+    Token t_float{"float"};
+    Token t_double{"double"};
+    Token t_short{"short"};
+    Token t_long{"long"};
+    Token t_signed{"signed"};
+    Token t_unsigned{"unsigned"};
+    Token t_return{"return"};
+
+    queue<Token> tokens;
+
+    queue<Token> scan(string input)
+    {
+        // empty token list on rescans
+        while(not tokens.empty())
+        {
+            tokens.pop();
+        }
+
+        for(int i = 0 ; i < input.length() ; i++)
+        {
+            // whitespace
+            while(isspace(input[i]) and i < input.length())
             {
-                while(i < input.length() and
-                        not(input[i - 1] == '*' and input[i] == '/'))
-                {
-                    i++;
-                }
                 i++;
             }
 
-            // Comment until end of line.
-            if(input[i] == '/' and input[i + 1] == '/')
+            // comments, or division
+            if(i < input.length() - 1) // able to look ahead
             {
+                // multiline comment
+                if(input[i] == '/' and input[i + 1] == '*')
+                {
+                    while(i < input.length() and
+                            not(input[i - 1] == '*' and input[i] == '/'))
+                    {
+                        i++;
+                    }
+                    i++;
+                }
+
+                // Comment until end of line.
+                if(input[i] == '/' and input[i + 1] == '/')
+                {
+                    do
+                    {
+                        i++;
+                    }
+                    while(i < input.length() and
+                            input[i] != '\n' and input[i] != '\r');
+                }
+            }
+
+
+            // Identifier: [_<letter>][_<letter>0-9]+
+            string IdentifierStr;
+            IdentifierStr = "";
+            if(isalpha_case(input[i]))
+            {
+                // compile name
+                while(isalnum_case(input[i]))
+                {
+                    IdentifierStr += input[i];
+                    i++;
+                }
+
+                //cout << IdentifierStr; exit(0);
+                if(IdentifierStr == "struct")
+                {
+                    tokens.push(t_struct);
+                }
+                else if(IdentifierStr == "bool")
+                {
+                    tokens.push(t_bool);
+                }
+                else if(IdentifierStr == "char")
+                {
+                    tokens.push(t_char);
+                }
+                else if(IdentifierStr == "int")
+                {
+                    tokens.push(t_int);
+                }
+                else if(IdentifierStr == "float")
+                {
+                    tokens.push(t_float);
+                }
+                else if(IdentifierStr == "double")
+                {
+                    tokens.push(t_double);
+                }
+                else if(IdentifierStr == "short")
+                {
+                    tokens.push(t_short);
+                }
+                else if(IdentifierStr == "long")
+                {
+                    tokens.push(t_long);
+                }
+                else if(IdentifierStr == "signed")
+                {
+                    tokens.push(t_signed);
+                }
+                else if(IdentifierStr == "unsigned")
+                {
+                    tokens.push(t_unsigned);
+                }
+                else if(IdentifierStr == "return")
+                {
+                    tokens.push(t_return);
+                }
+                else
+                {
+                    Token id(IdentifierStr);
+                    tokens.push(id);
+                }
+            }
+
+            /*
+            // Number: [0-9.]+
+            if(isdigit(input[i])) //or input[i] == '.')
+            {
+                string NumStr;
                 do
                 {
-                    i++;
+                    NumStr += input[i];
+                    input[i] = getchar();
                 }
-                while(i < input.length() and
-                        input[i] != '\n' and input[i] != '\r');
+                while(isdigit(input[i]) or input[i] == '.');
+
+                NumVal = strtod(NumStr.c_str(), nullptr);
+                return t_number;
             }
+            */
+
+
+            // what remains
+            if(i >= 0 and not isspace(input[i]))
+            {
+                Token temp(input[i]);
+                tokens.push(input[i]);
+            }
+
+            // return char if it is not recognized
         }
+        return tokens;
+    }
 
-
-        // Identifier: [_<letter>][_<letter>0-9]+
-        string IdentifierStr;
-        IdentifierStr = "";
-        if(isalpha_case(input[i]))
+    // print token list
+    
+    void print()
+    {
+        queue<Token> q;
+        for (int i = 0 ; i < tokens.size() ; i++)
         {
-            // compile name
-            while(isalnum_case(input[i]))
-            {
-                IdentifierStr += input[i];
-                i++;
-            }
+            q.push(tokens.front());
 
-            //cout << IdentifierStr; exit(0);
-            if(IdentifierStr == "struct")
+            tokens.push(tokens.front());
+            tokens.pop();
+        }
+        while(not q.empty())
+        {
+            if(q.front().ch >= 0)
             {
-                tokens.push(token_struct);
-            }
-            else if(IdentifierStr == "bool")
-            {
-                tokens.push(token_bool);
-            }
-            else if(IdentifierStr == "char")
-            {
-                tokens.push(token_char);
-            }
-            else if(IdentifierStr == "int")
-            {
-                tokens.push(token_int);
-            }
-            else if(IdentifierStr == "float")
-            {
-                tokens.push(token_float);
-            }
-            else if(IdentifierStr == "double")
-            {
-                tokens.push(token_double);
-            }
-            else if(IdentifierStr == "short")
-            {
-                tokens.push(token_short);
-            }
-            else if(IdentifierStr == "long")
-            {
-                tokens.push(token_long);
-            }
-            else if(IdentifierStr == "signed")
-            {
-                tokens.push(token_signed);
-            }
-            else if(IdentifierStr == "unsigned")
-            {
-                tokens.push(token_unsigned);
-            }
-            else if(IdentifierStr == "return")
-            {
-                tokens.push(token_return);
+                cout << (char) q.front().str;
             }
             else
             {
-                tokens.push(token_identifier);
+                switch(q.front())
+                {
+                case t_identifier.ch:
+                    cout << t_identifier.str();
+                    break;
+                case t_number.ch:
+                    cout << "number ";
+                    break;
+                case t_struct.ch:
+                    cout << "struct ";
+                    break;
+                case t_bool.ch:
+                    cout << "bool ";
+                    break;
+                case t_char.ch:
+                    cout << "char ";
+                    break;
+                case t_int.ch:
+                    cout << "int ";
+                    break;
+                case t_float.ch:
+                    cout << "float ";
+                    break;
+                case t_double.ch:
+                    cout << "double ";
+                    break;
+                case t_short.ch:
+                    cout << "short ";
+                    break;
+                case t_long.ch:
+                    cout << "long ";
+                    break;
+                case t_signed.ch:
+                    cout << "signed ";
+                    break;
+                case t_unsigned.ch:
+                    cout << "unsigned ";
+                    break;
+                case t_return.ch:
+                    cout << "return ";
+                    break;
+                }
             }
+            q.pop();
         }
-
-        /*
-        // Number: [0-9.]+
-        if(isdigit(input[i])) //or input[i] == '.')
-        {
-            string NumStr;
-            do
-            {
-                NumStr += input[i];
-                input[i] = getchar();
-            }
-            while(isdigit(input[i]) or input[i] == '.');
-
-            NumVal = strtod(NumStr.c_str(), nullptr);
-            return token_number;
-        }
-        */
-
-
-        // what remains
-        if(i >= 0 and not isspace(input[i]))
-        {
-            tokens.push(input[i]);
-        }
-
-        // return char if it is not recognized
     }
-    return tokens;
-}
+    */
 
-void print_scanner(queue<int> q)
-{
-    while(not q.empty())
-    {
-        if(q.front() >= 0)
-        {
-            cout << (char) q.front();
-        }
-        else
-        {
-            switch(q.front())
-            {
-            case token_identifier:
-                cout << "identifier ";
-                break;
-            case token_number:
-                cout << "number ";
-                break;
-            case token_struct:
-                cout << "struct ";
-                break;
-            case token_bool:
-                cout << "bool ";
-                break;
-            case token_char:
-                cout << "char ";
-                break;
-            case token_int:
-                cout << "int ";
-                break;
-            case token_float:
-                cout << "float ";
-                break;
-            case token_double:
-                cout << "double ";
-                break;
-            case token_short:
-                cout << "short ";
-                break;
-            case token_long:
-                cout << "long ";
-                break;
-            case token_signed:
-                cout << "signed ";
-                break;
-            case token_unsigned:
-                cout << "unsigned ";
-                break;
-            case token_return:
-                cout << "return ";
-                break;
-            }
-        }
-        q.pop();
-    }
-}
+
+// lexer portion
+//// skips: whitespace, comments
 
 // }
-
-
+};
 struct SourceLocation
 {
     int line;
@@ -277,12 +297,18 @@ struct SourceLocation
 // denoted _
 class Tree_base
 {
-    SourceLocation sl; 
+    SourceLocation sl;
 
 public:
     string name = "";
-    int getLine() const { return sl.line; }
-    int getCol() const { return sl.col; }
+    int getLine() const
+    {
+        return sl.line;
+    }
+    int getCol() const
+    {
+        return sl.col;
+    }
 
 };
 
@@ -292,12 +318,13 @@ public:
 // recursive structure
 // structAST := struct name { body } ;
 //  body     := _ | LeafstructAST _ | structAST _
+/*
 struct Struct
 {
     string name;
     Expr* body;
 
-    virtual 
+    virtual
 };
 
 
@@ -310,7 +337,7 @@ Expr* parse(queue<int> tokens)
 {
     // the program
     Expr* program = new Expr;
-    
+
 
     int token;
 
@@ -321,8 +348,8 @@ Expr* parse(queue<int> tokens)
         tokens.pop();
         switch(token)
         {
-        case token_struct:
-            
+        case t_struct.ch:
+
             break;
         default: // language element not recoqnized
             last = to_ret;
@@ -354,6 +381,7 @@ void print_tree(Expr* tree)
 }
 
 // }
+*/
 #include <fstream>
 
 int main(int argc, char** argv)
@@ -374,15 +402,19 @@ int main(int argc, char** argv)
         newfile.close();
     }
 
-    print("just data\n");
+    print("just data:\n");
     print(data);
 
     print("\nscanner: \n");
-    print_scanner(scan(data));
+    //print_scanner(scan(data));
 
-    print("\nfull processing: \n");
-    print_tree(tree_ops(parse(scan(data))));
+    //print("\nfull processing: \n");
+    //print_tree(tree_ops(parse(scan(data))));
 
     return 0;
 }
 
+
+/*
+
+*/
