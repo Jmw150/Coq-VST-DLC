@@ -135,12 +135,14 @@ def primitive_tree(name):
 def main_tree(tokens) :
     "main from C"
     i = 0
-    while i < len(tokens)-len('im(){r0;};') : # type id ;
+    while i < len(tokens)-len('im(){r0;}') : # type id ;
         if (tokens[i] == 'int' and
             tokens[i+1] == 'main' and
             tokens[i+2] == '(' and
             tokens[i+3] == '{') :
-            1
+            j = i 
+            while j < len(tokens)-len('r0;}') :
+                if (token[i
 
         i+= 1
     
@@ -150,12 +152,15 @@ def unknown_tree(tokens) :
     "anything undefined"
     i = 0
     while i < len(tokens) :
-        if (token[i][0] != '{') : # not part of a tree
-            token[i] = '{\'UNKOWN'+str(i)+'\':'+str(token[i])+'}'
+        if (tokens[i][0] != '{' and tokens[i] != '{') : # not part of a tree
+            tokens[i] = '{\'UNKOWN'+str(i)+'\':\''+str(tokens[i])+'\'}'
 
         i+= 1
 
+    print(tokens)
+
     for e in tokens :
+        print(e)
         e = eval(e) # nested structures not reached
 
     return tokens
