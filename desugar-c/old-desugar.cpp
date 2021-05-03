@@ -101,10 +101,7 @@ public:
         for(int i = 0 ; i < input.length() ; i++)
         {
             // whitespace
-            while(isspace(input[i]) and i < input.length())
-            {
-                i++;
-            }
+            while(isspace(input[i]) and i < input.length()) { i++; }
 
             // comments, or division
             if(i < input.length() - 1) // able to look ahead
