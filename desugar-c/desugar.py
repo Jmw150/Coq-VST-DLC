@@ -139,7 +139,7 @@ def main_tree(tokens) :
         if (tokens[i] == 'int' and
             tokens[i+1] == 'main' and
             tokens[i+2] == '(' and
-            tokens[i+3] == '(' and
+            tokens[i+3] == ')' and
             tokens[i+4] == '{') :
             j = i 
             while j < len(tokens)-len('r0;}') :
