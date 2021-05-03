@@ -92,6 +92,7 @@ def ast_token(tokens:list) :
     keywords = [
         'auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
     keywords.append('bool') # common
+    keywords.append('main') 
 
 
     marked_tokens = []
@@ -105,7 +106,7 @@ def ast_token(tokens:list) :
 
     return marked_tokens
 
-# need to desugar typedefs
+# NOTE:need to desugar typedefs
 def struct_tree(tokens) :
     "make struct trees in the token list"
     temp = []
@@ -113,13 +114,17 @@ def struct_tree(tokens) :
     while i < len(tokens)-len('si{};') : # length of empty struct
         if tokens[i] == 'struct' :
             start = i
-            if 
-           tokens[i+1][:len('ID:')] == 'ID:' and
-           tokens[i+2] == '{' :
-            j = i
-            while tokens[j] != '}' :
-                j += 1
-            if tokens[j] == ';' :
+            if tokens[i+1][:len('ID:')] == 'ID:' and tokens[i+2] == '{' :
+                j = i+3
+                while tokens[j] != '}' and j < len(tokens)-len('};'):
+                    j += 1
+            if tokens[j] == '}' and tokens[j+1] == ';' :
+                tokens = (tokens[:start]
+                       + ['STRUCT:'+str(tokens[start+1][3:])+':'+str(tokens[start+3:j])]
+                       + tokens[j:])
+        i+= 1
+
+    return tokens
             
             
 
@@ -130,6 +135,7 @@ def struct_table(table) :
     while i < len(table) :
         # hand code grammar
         if table[i] == 'struct' :
+            1
 
 def remove_extra_whitespace(string) :
     string = string.replace('\r','')
@@ -145,8 +151,10 @@ f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
 print(f)
 t = raw_token(f)
-print(t)
+#print(t)
 t = ast_token(t)
+#print(t)
+t = struct_tree(t)
 print(t)
 
 #main()
