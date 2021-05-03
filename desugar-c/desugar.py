@@ -105,6 +105,23 @@ def ast_token(tokens:list) :
 
     return marked_tokens
 
+# need to desugar typedefs
+def struct_tree(tokens) :
+    "make struct trees in the token list"
+    temp = []
+    i = 0
+    while i < len(tokens)-len('si{};') : # length of empty struct
+        if tokens[i] == 'struct' :
+            start = i
+            if 
+           tokens[i+1][:len('ID:')] == 'ID:' and
+           tokens[i+2] == '{' :
+            j = i
+            while tokens[j] != '}' :
+                j += 1
+            if tokens[j] == ';' :
+            
+            
 
 def struct_table(table) :
     "pull out and store struct syntax trees"
@@ -113,7 +130,6 @@ def struct_table(table) :
     while i < len(table) :
         # hand code grammar
         if table[i] == 'struct' :
-            1 # need to know if they are ID's or not
 
 def remove_extra_whitespace(string) :
     string = string.replace('\r','')
