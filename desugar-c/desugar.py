@@ -7,8 +7,29 @@ def get_file(filename) :
             File += l
 
     return File
-   
 
+# some boolean functions
+def is_alphanum_(string,i):
+    return ((string[i] >= 'a' and string[i] <= 'z') or
+            (string[i] >= 'A' and string[i] <= 'Z') or
+            (string[i] >= '0' and string[i] <= '9') or
+            (string[i] == '_'))
+
+def is_alpha_(string,i):
+    return ((string[i] >= 'a' and string[i] <= 'z') or
+            (string[i] >= 'A' and string[i] <= 'Z') or
+            (string[i] == '_'))
+
+def is_identifier(string):
+    "is this string a C identifier"
+    if not is_alpha_(string, 0) :
+        return False
+    for ch in string :
+        if not (is_alpha_(ch, 0) or is_alphanum_(ch, 0)) :
+            return False
+    return True
+   
+# scanner stuff
 def remove_single_comments(string) :
     """ remove C comments
     """
@@ -40,26 +61,7 @@ def remove_extra_whitespace(string) :
     string = ' '.join(string.split())
     return string
 
-def is_alphanum_(string,i):
-    return ((string[i] >= 'a' and string[i] <= 'z') or
-            (string[i] >= 'A' and string[i] <= 'Z') or
-            (string[i] >= '0' and string[i] <= '9') or
-            (string[i] == '_'))
-
-def is_alpha_(string,i):
-    return ((string[i] >= 'a' and string[i] <= 'z') or
-            (string[i] >= 'A' and string[i] <= 'Z') or
-            (string[i] == '_'))
-
-def is_identifier(string):
-    "is this string a C identifier"
-    if not is_alpha_(string, 0) :
-        return False
-    for ch in string :
-        if not (is_alpha_(ch, 0) or is_alphanum_(ch, 0)) :
-            return False
-    return True
-
+# tokenizing
 def raw_token(string) :
     "the design of this is to treat characters like tokens if they are not part of the token list"
 
@@ -93,6 +95,7 @@ def raw_token(string) :
 
     return tokens
 
+# parsing
 def id_tree(tokens:list) :
     "put markers like ID on tokens"
     # from C17 standard
@@ -130,7 +133,6 @@ def primitive_tree(name):
         return tokens
     return f
 
-
 def main_tree(tokens) :
     "main from C"
     i = 0
@@ -152,6 +154,7 @@ def main_tree(tokens) :
         i+= 1
     
     return tokens
+
 
 def unknown_tree(tokens) :
     "anything undefined"
@@ -220,12 +223,16 @@ def structure_tree(name):
 
 # make the syntax trees
 tree = {}
+# primitives
 for prime in ['char','int','float','double','_Bool'] :
     tree.update({ prime : primitive_tree(prime) })
+# initialization of structs/unions
 for init in ['struct','union'] :
     tree.update({ init : structure_init_tree(init) })
+# declaring stuff
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
+
 
 def symbol_table(tokens) :
     "start dropping those names"
@@ -245,7 +252,7 @@ def symbol_table(tokens) :
     return table
 
 
-# still kind of difficult conceptually, even with hash trees
+# still kind of tedious conceptually, even with hash trees
 def struct_copy(tokens, s_table) :
     """ If a = b is seen, change it into a deep copy
     """
@@ -258,7 +265,7 @@ def struct_copy(tokens, s_table) :
                 if 'BASETYPE' in e.keys() :
                     code.append(string+'.'+e['BASETYPE']['ID']) 
                 elif 'STRUCTINIT' in e.keys() :
-                    #code.append(string+'.'+expand_obj(e['STRUCTINIT']['TYPE'])) # tree expansion
+                    #code.append(string+'.'+expand_obj(e['STRUCTINIT']['TYPE'])) #NOTE: tree expansion needed
                     1
         return code
 
