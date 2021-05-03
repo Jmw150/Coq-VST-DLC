@@ -105,7 +105,6 @@ def id_tree(tokens:list) :
 
     return marked_tokens
 
-# NOTE:need to desugar typedefs
 def primitive_tree(name):
     "stuff like int, and bool, not including assigning data yet"
     def f(tokens) :
@@ -124,7 +123,27 @@ def primitive_tree(name):
             i+= 1 
         return tokens
     return f
-        
+
+def structure_init_tree(name) :
+    "stuff like int, and bool, not including assigning data yet"
+    def f(tokens) :
+        i = 0
+        while i < len(tokens)-len('ti;') : # type id ;
+            # type id ;
+            if (tokens[i] == name and 
+                tokens[i+1][:len('{\'ID\':')] == '{\'ID\':' and 
+                tokens[i+2][:len('{\'ID\':')] == '{\'ID\':' and 
+                tokens[i+3] == ';' ):
+               tokens = (tokens[:i]+
+                         [
+                            '{\''+name.upper()+'INIT\':'+
+                                '{\'TYPE\':'+tokens[i+1][len('.ID.: '):-1]+','+
+                                       tokens[i+1][1:-1]+'}}'
+                         ]+
+                         tokens[i+4:]) 
+            i+= 1 
+        return tokens
+    return f
 
 def structure_tree(name):
     "for def of unions and structs, unions and structs have the same rules"
@@ -140,7 +159,7 @@ def structure_tree(name):
                 if tokens[j] == '}' and tokens[j+1] == ';' :
                     tokens = (tokens[:start]+
                              [
-                                '{\'' +str(name.upper())+ '\':{'+        # struct
+                                '{\'' +str(name.upper())+ 'DEF\':{'+        # struct
                                     str(tokens[start+1][1:-1])+         # id
                                 ',\'BODY\':'+str(tokens[start+3:j])+'}}' # body
                              ]
@@ -150,24 +169,17 @@ def structure_tree(name):
         return tokens 
     return f
 
+# NOTE:need to desugar typedefs
+
 # make the syntax trees
 tree = {}
 for prime in ['char','int','float','double','_Bool'] :
     tree.update({ prime : primitive_tree(prime) })
+for init in ['struct','union'] :
+    tree.update({ init : structure_init_tree(init) })
 
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
-
-{'struct_name': 
-    {'STRUCT': 
-        {'ID': 'struct_name', 
-         'BODY': ["{'BASETYPE':{'TYPE':'INT','ID':'struct_element_name'}}",
-                  "{'BASETYPE':{'TYPE':'FLOAT','ID':'flo'}}"]}}, 
- 'bigger_struct': 
-    {'STRUCT': 
-        {'ID': 'bigger_struct', 
-        'BODY': ['struct', "{'ID':'struct_name'}", "{'ID':'s_obj'}", ';']}}
-} 
 
 def symbol_table(tokens) :
     "start dropping those names"
@@ -176,11 +188,12 @@ def symbol_table(tokens) :
     i = 0
     while i < len(tokens) :
         # structs
-        if tokens[i][:len('{\'STRUCT\':')] == '{\'STRUCT\':' :
+        if tokens[i][:len('{\'STRUCTDEF\':')] == '{\'STRUCTDEF\':' :
             f = eval(tokens[i])
             # eval is very surface level
-            #f['STRUCT']['BODY'][0] = eval(f['STRUCT']['BODY'][0])
-            table.update({ f['STRUCT']['ID'] : f })
+            for l in f['STRUCTDEF']['BODY'] :
+                l = eval(l)
+            table.update({ f['STRUCTDEF']['ID'] : f })
         i += 1
 
     return table
