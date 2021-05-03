@@ -130,7 +130,7 @@ def structure_tree(name):
     "for def of unions and structs, unions and structs have the same rules"
     def f(tokens) :
         i = 0
-        while i < len(tokens)-len('si{};') : # length of empty struct
+        while i < len(tokens)-len('si{};') : # struct id { } ;
             if tokens[i] == name :
                 start = i
                 if tokens[i+1][:len('{\'ID\':')] == '{\'ID\':' and tokens[i+2] == '{' :
@@ -138,8 +138,12 @@ def structure_tree(name):
                     while tokens[j] != '}' and j < len(tokens)-len('};'):
                         j += 1
                 if tokens[j] == '}' and tokens[j+1] == ';' :
-                    tokens = (tokens[:start]
-                           + [name.upper()+':'+'\''+str(tokens[start+1][3:])+'\':'+str(tokens[start+3:j])]
+                    tokens = (tokens[:start]+
+                             [
+                                '{\'' +str(name.upper())+ '\':{'+        # struct
+                                    str(tokens[start+1][1:-1])+         # id
+                                ',\'BODY\':'+str(tokens[start+3:j])+'}}' # body
+                             ]
                            + tokens[j+2:])
             i+= 1
     
@@ -154,18 +158,29 @@ for prime in ['char','int','float','double','_Bool'] :
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
 
+{'struct_name': 
+    {'STRUCT': 
+        {'ID': 'struct_name', 
+         'BODY': ["{'BASETYPE':{'TYPE':'INT','ID':'struct_element_name'}}",
+                  "{'BASETYPE':{'TYPE':'FLOAT','ID':'flo'}}"]}}, 
+ 'bigger_struct': 
+    {'STRUCT': 
+        {'ID': 'bigger_struct', 
+        'BODY': ['struct', "{'ID':'struct_name'}", "{'ID':'s_obj'}", ';']}}
+} 
 
-def struct_table(tokens) :
-    "pull out and store struct syntax trees"
+def symbol_table(tokens) :
+    "start dropping those names"
 
     table = {}
     i = 0
     while i < len(tokens) :
-        # hand code grammar
-        if tokens[i][:len('\'STRUCT\':')] == '\'STRUCT\':' :
-            table.update(eval(
-                    str('{'+tokens[i][len('\'STRUCT\':'):]+'}')
-                )) 
+        # structs
+        if tokens[i][:len('{\'STRUCT\':')] == '{\'STRUCT\':' :
+            f = eval(tokens[i])
+            # eval is very surface level
+            #f['STRUCT']['BODY'][0] = eval(f['STRUCT']['BODY'][0])
+            table.update({ f['STRUCT']['ID'] : f })
         i += 1
 
     return table
@@ -214,11 +229,11 @@ t = raw_token(f)
 t = id_tree(t)
 for primitive in tree :
     t = tree[primitive](t)
-#t = struct_tree(t)
+t = struct_tree(t)
 print(str(t)+'\n')
 
 ## tabling
-#s_table = struct_table(t)
-#print(s_table)
+s_table = symbol_table(t)
+print(s_table)
 
 #main()
