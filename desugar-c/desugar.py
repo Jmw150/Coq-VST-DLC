@@ -1,4 +1,5 @@
 # a mini compiler, all in one file
+
 def get_file(filename) :
     File = ''
     with open(filename) as f:
@@ -92,12 +93,10 @@ def raw_token(string) :
 
     return tokens
 
-
 def id_tree(tokens:list) :
     "put markers like ID on tokens"
     # from C17 standard
-    keywords = [
-        'auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
+    keywords = ['auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
     keywords.append('bool') # some common stuff
     keywords.append('main') 
 
@@ -135,15 +134,21 @@ def primitive_tree(name):
 def main_tree(tokens) :
     "main from C"
     i = 0
+    
     while i < len(tokens)-len('im(){r0;}') : # type id ;
         if (tokens[i] == 'int' and
             tokens[i+1] == 'main' and
             tokens[i+2] == '(' and
-            tokens[i+3] == '{') :
+            tokens[i+3] == '(' and
+            tokens[i+4] == '{') :
             j = i 
             while j < len(tokens)-len('r0;}') :
-                if (token[i
-
+                if (tokens[j] == 'return' and 
+                    tokens[j+2] == ';' and 
+                    tokens[j+3] == '}') :
+                    tokens = (tokens[:i] +
+                             ['{\'MAIN\':'+str(tokens[i+5:j])+'}']
+                             + tokens[j+4:])
         i+= 1
     
     return tokens
@@ -152,18 +157,19 @@ def unknown_tree(tokens) :
     "anything undefined"
     i = 0
     while i < len(tokens) :
-        if (tokens[i][0] != '{' and tokens[i] != '{') : # not part of a tree
+        if (tokens[i][0] != '{' or tokens[i] == '{') : # not part of a tree
             tokens[i] = '{\'UNKOWN'+str(i)+'\':\''+str(tokens[i])+'\'}'
 
         i+= 1
 
     print(tokens)
 
+    t = []
     for e in tokens :
         print(e)
-        e = eval(e) # nested structures not reached
+        t.append(eval(e)) # nested structures not reached
 
-    return tokens
+    return t
 
 def structure_init_tree(name) :
     "stuff like int, and bool, not including assigning data yet"
@@ -294,16 +300,17 @@ t = raw_token(f)
 t = id_tree(t)
 for primitive in tree :
     t = tree[primitive](t)
+t = main_tree(t)
 t = struct_tree(t)
 t = unknown_tree(t)
 print(str(t)+'\n')
 
 ## tabling
-s_table = symbol_table(t)
-print(str(s_table)+'\n')
+#s_table = symbol_table(t)
+#print(str(s_table)+'\n')
 
 ## semantic actions
-t = struct_copy(t,s_table)
-print(t)
+#t = struct_copy(t,s_table)
+#print(t)
 
 #main()
