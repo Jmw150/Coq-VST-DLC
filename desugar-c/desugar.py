@@ -86,7 +86,7 @@ def raw_token(string) :
 
     return tokens
 
-def ast_token(tokens:list) :
+def id_tree(tokens:list) :
     "put markers like ID on tokens"
     # from C17 standard
     keywords = [
@@ -94,13 +94,12 @@ def ast_token(tokens:list) :
     keywords.append('bool') # some common stuff
     keywords.append('main') 
 
-
     marked_tokens = []
     for e in tokens :
         if e in keywords :
             marked_tokens.append(e)
         elif is_identifier(e) :
-            marked_tokens.append('ID:'+e)
+            marked_tokens.append('{\'ID\':\''+e+'\'}')
         else :
             marked_tokens.append(e)
 
@@ -113,12 +112,15 @@ def primitive_tree(name):
         i = 0
         while i < len(tokens)-len('ti;') : # type id ;
             # type id ;
-            if tokens[i] == name :
-                if tokens[i+1][:len('ID:')] == 'ID:' :
-                    if tokens[i+2] == ';' :
-                        tokens = (tokens[:i]+
-                                 [name.upper()+':'+tokens[i+1][len('ID:'):]]+
-                                  tokens[i+3:]) 
+            if (tokens[i] == name and 
+                tokens[i+1][:len('{\'ID\':')] == '{\'ID\':' and 
+                tokens[i+2] == ';' ):
+               tokens = (tokens[:i]+
+                         [
+                            '{\'BASETYPE\':{\'TYPE\':\''+name.upper()+'\','+
+                                       tokens[i+1][1:-1]+'}}'
+                         ]+
+                         tokens[i+3:]) 
             i+= 1 
         return tokens
     return f
@@ -131,7 +133,7 @@ def structure_tree(name):
         while i < len(tokens)-len('si{};') : # length of empty struct
             if tokens[i] == name :
                 start = i
-                if tokens[i+1][:len('ID:')] == 'ID:' and tokens[i+2] == '{' :
+                if tokens[i+1][:len('{\'ID\':')] == '{\'ID\':' and tokens[i+2] == '{' :
                     j = i+3
                     while tokens[j] != '}' and j < len(tokens)-len('};'):
                         j += 1
@@ -148,6 +150,7 @@ def structure_tree(name):
 tree = {}
 for prime in ['char','int','float','double','_Bool'] :
     tree.update({ prime : primitive_tree(prime) })
+
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
 
@@ -159,11 +162,10 @@ def struct_table(tokens) :
     i = 0
     while i < len(tokens) :
         # hand code grammar
-        if tokens[i][:len('STRUCT:')] == 'STRUCT:' :
+        if tokens[i][:len('\'STRUCT\':')] == '\'STRUCT\':' :
             table.update(eval(
-                    str('{'+tokens[i][len('STRUCT:'):]+'}')
-                ))
-
+                    str('{'+tokens[i][len('\'STRUCT\':'):]+'}')
+                )) 
         i += 1
 
     return table
@@ -179,34 +181,44 @@ def struct_copy(tokens, s_table) :
     """
 
     def expand_obj(string) :
-        return string
+        "expands 'a' to 'a.b' if b is an element of a"
+        code = []
+        if string in s_table :
+            for e in s_table[string] : 
+                code.append(string+'.') # oops
+                
+
+        return code
 
     i = 0
     while i < len(tokens)-2 :
-        if (tokens[i][:len('ID:')] == 'ID:' and
+        if (tokens[i][:len('{\'ID\':')] == '{\'ID\':' and
             tokens[i+1] == '=' and
-            tokens[i+2][:len('ID:')] == 'ID:'):
-            if tokens[i][len('ID:'):] in s_table.keys() :
-                tokens[i] = expand_obj(tokens[i][len('ID:'):])
-            if tokens[i+2][len('ID:'):] in s_table.keys() :
-                tokens[i+2] = expand_obj(tokens[i+2][len('ID:'):])
+            tokens[i+2][:len('{\'ID\':')] == '{\'ID\':'):
+            if tokens[i][len('{\'ID\':'):] in s_table.keys() :
+                tokens[i] = expand_obj(tokens[i][len('{\'ID\':'):])
+            if tokens[i+2][len('{\'ID\':'):] in s_table.keys() :
+                tokens[i+2] = expand_obj(tokens[i+2][len('{\'ID\':'):])
 
 
 #def main() :
+## scanning stuff
 f = get_file('struct-copy.c')
 f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
-print(f)
+print(f+'\n')
 t = raw_token(f)
-t = ast_token(t)
 
+## parsing stuff
+t = id_tree(t)
 for primitive in tree :
     t = tree[primitive](t)
-t = struct_tree(t)
+#t = struct_tree(t)
+print(str(t)+'\n')
 
-print(t)
-s_table = struct_table(t)
-print(s_table)
+## tabling
+#s_table = struct_table(t)
+#print(s_table)
 
 #main()
