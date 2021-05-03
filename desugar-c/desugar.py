@@ -172,7 +172,7 @@ def unknown_tree(tokens) :
     return t
 
 def structure_init_tree(name) :
-    "stuff like int, and bool, not including assigning data yet"
+    "structs/unions as they are initialized"
     def f(tokens) :
         i = 0
         while i < len(tokens)-len('ti;') : # type id ;
@@ -224,7 +224,6 @@ for prime in ['char','int','float','double','_Bool'] :
     tree.update({ prime : primitive_tree(prime) })
 for init in ['struct','union'] :
     tree.update({ init : structure_init_tree(init) })
-
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
 

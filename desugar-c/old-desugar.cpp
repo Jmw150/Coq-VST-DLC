@@ -1,4 +1,5 @@
-// A simple program transformer
+// A "simple" program transformer
+// C++ is too long winded with expressing computation
 
 #include <cctype>
 #include <cstdio>
