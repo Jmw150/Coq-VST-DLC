@@ -33,28 +33,28 @@ def remove_multi_comments(string) :
         i += 1
     return string
 
+def is_alphanum_(string,i):
+    return ((string[i] >= 'a' and string[i] <= 'z') or
+            (string[i] >= 'A' and string[i] <= 'Z') or
+            (string[i] >= '0' and string[i] <= '9') or
+            (string[i] == '_'))
 
-def token(string) :
+def is_alpha_(string,i):
+    return ((string[i] >= 'a' and string[i] <= 'z') or
+            (string[i] >= 'A' and string[i] <= 'Z') or
+            (string[i] == '_'))
+
+def is_identifier(string):
+    "is this string a C identifier"
+    if not is_alpha_(string, 0) :
+        return False
+    for ch in string :
+        if not (is_alpha_(ch, 0) or is_alphanum_(ch, 0)) :
+            return False
+    return True
+
+def raw_token(string) :
     "the design of this is to treat characters like tokens if they are not part of the token list"
-
-    def pull_token(tokens:list, i:int, token:str) :
-        if string[i:i+len(token)] == token :
-            tokens.append(token)
-            i += len(token)
-
-        return tokens, i
-
-    def is_alphanum_(string,i):
-        return ((string[i] >= 'a' and string[i] <= 'z') or
-                (string[i] >= 'A' and string[i] <= 'Z') or
-                (string[i] >= '0' and string[i] <= '9') or
-                (string[i] == '_'))
-
-    
-    def is_alpha_(string,i):
-        return ((string[i] >= 'a' and string[i] <= 'z') or
-                (string[i] >= 'A' and string[i] <= 'Z') or
-                (string[i] == '_'))
 
     def identifier(tokens, i) :
         temp = ''
@@ -67,14 +67,12 @@ def token(string) :
 
             tokens.append(temp)
 
-        return tokens, i
-                
+        return tokens, i 
         
     spaced_tokens = []
     i = 0
     while i < len(string) :
-        #tokens, i = pull_token(tokens, i, 'struct')
-        tokens, i = identifier(spaced_tokens, i)
+        spaced_tokens, i = identifier(spaced_tokens, i)
 
         spaced_tokens.append(string[i])
 
@@ -84,17 +82,38 @@ def token(string) :
     tokens = []
     for e in spaced_tokens :
         if e != ' ' :
-            tokens.append(e)
-
-    # label idendifiers
-    for e in tokens :
+            tokens.append(e) 
 
     return tokens
 
-def remove_newlines(string) :
-    string = string.replace('\r','')
-    string = string.replace('\n','')
-    return string
+def ast_token(tokens:list) :
+    "put markers like ID on tokens"
+    # from C17 standard
+    keywords = [
+        'auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
+    keywords.append('bool') # common
+
+
+    marked_tokens = []
+    for e in tokens :
+        if e in keywords :
+            marked_tokens.append(e)
+        elif is_identifier(e) :
+            marked_tokens.append('ID:'+e)
+        else :
+            marked_tokens.append(e)
+
+    return marked_tokens
+
+
+def struct_table(table) :
+    "pull out and store struct syntax trees"
+
+    i = 0
+    while i < len(table) :
+        # hand code grammar
+        if table[i] == 'struct' :
+            1 # need to know if they are ID's or not
 
 def remove_extra_whitespace(string) :
     string = string.replace('\r','')
@@ -102,11 +121,6 @@ def remove_extra_whitespace(string) :
     string = ' '.join(string.split())
     return string
 
-def remove_whitespace(string) :
-    string = string.replace('\r','')
-    string = string.replace('\n','')
-    string = string.replace(' ','')
-    return string
 
 #def main() :
 f = get_file('struct-copy.c')
@@ -114,7 +128,9 @@ f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
 print(f)
-t = token(f)
+t = raw_token(f)
+print(t)
+t = ast_token(t)
 print(t)
 
 #main()
