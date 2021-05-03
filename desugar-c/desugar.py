@@ -91,7 +91,7 @@ def ast_token(tokens:list) :
     # from C17 standard
     keywords = [
         'auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
-    keywords.append('bool') # common stuff
+    keywords.append('bool') # some common stuff
     keywords.append('main') 
 
 
@@ -107,11 +107,26 @@ def ast_token(tokens:list) :
     return marked_tokens
 
 # NOTE:need to desugar typedefs
-#   need a Union syntax tree
-def structure_tree(name):
-    "unions and structs have the same rules"
+def primitive_tree(name):
+    "stuff like int, and bool, not including assigning data yet"
     def f(tokens) :
-        temp = []
+        i = 0
+        while i < len(tokens)-len('ti;') : # type id ;
+            # type id ;
+            if tokens[i] == name :
+                if tokens[i+1][:len('ID:')] == 'ID:' :
+                    if tokens[i+2] == ';' :
+                        tokens = (tokens[:i]+
+                                 [name.upper()+':'+tokens[i+1][len('ID:'):]]+
+                                  tokens[i+3:]) 
+            i+= 1 
+        return tokens
+    return f
+        
+
+def structure_tree(name):
+    "for def of unions and structs, unions and structs have the same rules"
+    def f(tokens) :
         i = 0
         while i < len(tokens)-len('si{};') : # length of empty struct
             if tokens[i] == name :
@@ -126,32 +141,16 @@ def structure_tree(name):
                            + tokens[j+2:])
             i+= 1
     
-        return tokens
-        
-    
+        return tokens 
     return f
 
+# make the syntax trees
+tree = {}
+for prime in ['char','int','float','double','_Bool'] :
+    tree.update({ prime : primitive_tree(prime) })
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
 
-#def struct_tree(tokens) :
-#    temp = []
-#    i = 0
-#    while i < len(tokens)-len('si{};') : # length of empty struct
-#        if tokens[i] == 'struct' :
-#            start = i
-#            if tokens[i+1][:len('ID:')] == 'ID:' and tokens[i+2] == '{' :
-#                j = i+3
-#                while tokens[j] != '}' and j < len(tokens)-len('};'):
-#                    j += 1
-#            if tokens[j] == '}' and tokens[j+1] == ';' :
-#                tokens = (tokens[:start]
-#                       + ['STRUCT:'+'\''+str(tokens[start+1][3:])+'\':'+str(tokens[start+3:j])]
-#                       + tokens[j+2:])
-#        i+= 1
-#
-#    return tokens
-            
 
 def struct_table(tokens) :
     "pull out and store struct syntax trees"
@@ -201,7 +200,11 @@ f = remove_extra_whitespace(f)
 print(f)
 t = raw_token(f)
 t = ast_token(t)
+
+for primitive in tree :
+    t = tree[primitive](t)
 t = struct_tree(t)
+
 print(t)
 s_table = struct_table(t)
 print(s_table)

@@ -4,6 +4,7 @@
 struct struct_name
 {
     int struct_element_name;
+    float flo;
 };
 
 struct bigger_struct
