@@ -1,4 +1,4 @@
-
+# a mini compiler, all in one file
 def get_file(filename) :
     File = ''
     with open(filename) as f:
@@ -31,6 +31,12 @@ def remove_multi_comments(string) :
                 j += 1
             string = string[0:i] + string[j+2:]
         i += 1
+    return string
+
+def remove_extra_whitespace(string) :
+    string = string.replace('\r','')
+    string = string.replace('\n','')
+    string = ' '.join(string.split())
     return string
 
 def is_alphanum_(string,i):
@@ -86,6 +92,7 @@ def raw_token(string) :
 
     return tokens
 
+
 def id_tree(tokens:list) :
     "put markers like ID on tokens"
     # from C17 standard
@@ -123,6 +130,35 @@ def primitive_tree(name):
             i+= 1 
         return tokens
     return f
+
+
+def main_tree(tokens) :
+    "main from C"
+    i = 0
+    while i < len(tokens)-len('im(){r0;};') : # type id ;
+        if (tokens[i] == 'int' and
+            tokens[i+1] == 'main' and
+            tokens[i+2] == '(' and
+            tokens[i+3] == '{') :
+            1
+
+        i+= 1
+    
+    return tokens
+
+def unknown_tree(tokens) :
+    "anything undefined"
+    i = 0
+    while i < len(tokens) :
+        if (token[i][0] != '{') : # not part of a tree
+            token[i] = '{\'UNKOWN'+str(i)+'\':'+str(token[i])+'}'
+
+        i+= 1
+
+    for e in tokens :
+        e = eval(e) # nested structures not reached
+
+    return tokens
 
 def structure_init_tree(name) :
     "stuff like int, and bool, not including assigning data yet"
@@ -198,12 +234,8 @@ def symbol_table(tokens) :
 
     return table
 
-def remove_extra_whitespace(string) :
-    string = string.replace('\r','')
-    string = string.replace('\n','')
-    string = ' '.join(string.split())
-    return string
 
+# still kind of difficult conceptually, even with hash trees
 def struct_copy(tokens, s_table) :
     """ If a = b is seen, change it into a deep copy
     """
@@ -212,21 +244,36 @@ def struct_copy(tokens, s_table) :
         "expands 'a' to 'a.b' if b is an element of a"
         code = []
         if string in s_table :
-            for e in s_table[string] : 
-                code.append(string+'.') # oops
-                
-
+            for e in s_table[string]['STRUCTDEF']['BODY'] : 
+                if 'BASETYPE' in e.keys() :
+                    code.append(string+'.'+e['BASETYPE']['ID']) 
+                elif 'STRUCTINIT' in e.keys() :
+                    #code.append(string+'.'+expand_obj(e['STRUCTINIT']['TYPE'])) # tree expansion
+                    1
         return code
 
     i = 0
     while i < len(tokens)-2 :
-        if (tokens[i][:len('{\'ID\':')] == '{\'ID\':' and
-            tokens[i+1] == '=' and
-            tokens[i+2][:len('{\'ID\':')] == '{\'ID\':'):
-            if tokens[i][len('{\'ID\':'):] in s_table.keys() :
-                tokens[i] = expand_obj(tokens[i][len('{\'ID\':'):])
-            if tokens[i+2][len('{\'ID\':'):] in s_table.keys() :
-                tokens[i+2] = expand_obj(tokens[i+2][len('{\'ID\':'):])
+        if (tokens[i][:len('{\'ID\':')] == '{\'ID\':' and      # found a
+            tokens[i+1] == '=' and                             # found a = 
+            tokens[i+2][:len('{\'ID\':')] == '{\'ID\':'):      # found a = b
+            a = []
+            b = []
+            if tokens[i][len('{\'ID\':'):] in s_table.keys() :    # a in s_table
+                a = expand_obj(tokens[i][len('{\'ID\':'):]) # expand it
+            if tokens[i+2][len('{\'ID\':'):] in s_table.keys() :    # b in s_table
+                b = expand_obj(tokens[i+2][len('{\'ID\':'):]) # expand
+
+            j = 0
+            while j < len(a) : # have to match up
+                a[j] = a[j] + '=' + b[j]
+                    
+            tokens = tokens[:i] + a[:] + tokens[i+len(a):]
+
+        i += 1
+
+    return tokens
+            
 
 
 #def main() :
@@ -243,10 +290,15 @@ t = id_tree(t)
 for primitive in tree :
     t = tree[primitive](t)
 t = struct_tree(t)
+t = unknown_tree(t)
 print(str(t)+'\n')
 
 ## tabling
 s_table = symbol_table(t)
-print(s_table)
+print(str(s_table)+'\n')
+
+## semantic actions
+t = struct_copy(t,s_table)
+print(t)
 
 #main()
