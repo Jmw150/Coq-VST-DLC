@@ -91,7 +91,7 @@ def ast_token(tokens:list) :
     # from C17 standard
     keywords = [
         'auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
-    keywords.append('bool') # common
+    keywords.append('bool') # common stuff
     keywords.append('main') 
 
 
@@ -107,41 +107,90 @@ def ast_token(tokens:list) :
     return marked_tokens
 
 # NOTE:need to desugar typedefs
-def struct_tree(tokens) :
-    "make struct trees in the token list"
-    temp = []
-    i = 0
-    while i < len(tokens)-len('si{};') : # length of empty struct
-        if tokens[i] == 'struct' :
-            start = i
-            if tokens[i+1][:len('ID:')] == 'ID:' and tokens[i+2] == '{' :
-                j = i+3
-                while tokens[j] != '}' and j < len(tokens)-len('};'):
-                    j += 1
-            if tokens[j] == '}' and tokens[j+1] == ';' :
-                tokens = (tokens[:start]
-                       + ['STRUCT:'+str(tokens[start+1][3:])+':'+str(tokens[start+3:j])]
-                       + tokens[j:])
-        i+= 1
+#   need a Union syntax tree
+def structure_tree(name):
+    "unions and structs have the same rules"
+    def f(tokens) :
+        temp = []
+        i = 0
+        while i < len(tokens)-len('si{};') : # length of empty struct
+            if tokens[i] == name :
+                start = i
+                if tokens[i+1][:len('ID:')] == 'ID:' and tokens[i+2] == '{' :
+                    j = i+3
+                    while tokens[j] != '}' and j < len(tokens)-len('};'):
+                        j += 1
+                if tokens[j] == '}' and tokens[j+1] == ';' :
+                    tokens = (tokens[:start]
+                           + [name.upper()+':'+'\''+str(tokens[start+1][3:])+'\':'+str(tokens[start+3:j])]
+                           + tokens[j+2:])
+            i+= 1
+    
+        return tokens
+        
+    
+    return f
 
-    return tokens
-            
+union_tree = structure_tree('union')
+struct_tree = structure_tree('struct')
+
+#def struct_tree(tokens) :
+#    temp = []
+#    i = 0
+#    while i < len(tokens)-len('si{};') : # length of empty struct
+#        if tokens[i] == 'struct' :
+#            start = i
+#            if tokens[i+1][:len('ID:')] == 'ID:' and tokens[i+2] == '{' :
+#                j = i+3
+#                while tokens[j] != '}' and j < len(tokens)-len('};'):
+#                    j += 1
+#            if tokens[j] == '}' and tokens[j+1] == ';' :
+#                tokens = (tokens[:start]
+#                       + ['STRUCT:'+'\''+str(tokens[start+1][3:])+'\':'+str(tokens[start+3:j])]
+#                       + tokens[j+2:])
+#        i+= 1
+#
+#    return tokens
             
 
-def struct_table(table) :
+def struct_table(tokens) :
     "pull out and store struct syntax trees"
 
+    table = {}
     i = 0
-    while i < len(table) :
+    while i < len(tokens) :
         # hand code grammar
-        if table[i] == 'struct' :
-            1
+        if tokens[i][:len('STRUCT:')] == 'STRUCT:' :
+            table.update(eval(
+                    str('{'+tokens[i][len('STRUCT:'):]+'}')
+                ))
+
+        i += 1
+
+    return table
 
 def remove_extra_whitespace(string) :
     string = string.replace('\r','')
     string = string.replace('\n','')
     string = ' '.join(string.split())
     return string
+
+def struct_copy(tokens, s_table) :
+    """ If a = b is seen, change it into a deep copy
+    """
+
+    def expand_obj(string) :
+        return string
+
+    i = 0
+    while i < len(tokens)-2 :
+        if (tokens[i][:len('ID:')] == 'ID:' and
+            tokens[i+1] == '=' and
+            tokens[i+2][:len('ID:')] == 'ID:'):
+            if tokens[i][len('ID:'):] in s_table.keys() :
+                tokens[i] = expand_obj(tokens[i][len('ID:'):])
+            if tokens[i+2][len('ID:'):] in s_table.keys() :
+                tokens[i+2] = expand_obj(tokens[i+2][len('ID:'):])
 
 
 #def main() :
@@ -151,10 +200,10 @@ f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
 print(f)
 t = raw_token(f)
-#print(t)
 t = ast_token(t)
-#print(t)
 t = struct_tree(t)
 print(t)
+s_table = struct_table(t)
+print(s_table)
 
 #main()
