@@ -8,7 +8,12 @@ def get_file(filename) :
     return File
    
 f = get_file('struct-copy.c')
-
 print(f)
+
+def remove_whitespace(string) :
+    string = string.replace('\r','')
+    string = string.replace('\n','')
+    string = string.replace(' ','')
+    return string
 
 
