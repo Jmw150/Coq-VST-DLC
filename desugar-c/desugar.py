@@ -297,13 +297,14 @@ def struct_copy(tokens, s_table) :
     """ Assuming a and b are of the same type, if a = b is seen, change it into a deep copy """
 
     i = 0
-    while i < len(tokens)-2 : # bounds checking, indication that a=b could be its own tree
+    while i < len(tokens)-len('a=b;') : # bounds checking, indication that a=b could be its own tree
 
         # check a = b pattern is expandable
         if ('ID' in tokens[i]             and 
             'UNKNOWN' in tokens[i+1]      and
             'ID' in tokens[i+2]           and 
             tokens[i+1]['UNKNOWN'] == '=' and
+            tokens[i+3]['UNKNOWN'] == ';' and
             tokens[i]['ID'] in s_table    and
             'STRUCTINIT' in s_table[tokens[i]['ID']]): # is a struct object
 
@@ -318,25 +319,28 @@ def struct_copy(tokens, s_table) :
             a_body = a['BODY'][:]
             b_body = b['BODY'][:]
 
+            tokens = tokens[:i] + tokens[i+4:]
+
             j = 0
             while j < len(a_body) :
                 # make a.x = b.x for each element
-                #tokens.insert(i+j*len('i'), a['ID'])  # self insertion
-                tokens.insert(i+j*len('.')+len('.'), { 'UNKNOWN' : '.' }) 
+                tokens.insert(i+j*len('i.j=i.j;')+len(''), a['ID'])  # self insertion
+                tokens.insert(i+j*len('i.j=i.j;')+len('.'), { 'UNKNOWN' : '.' }) 
                 if 'BASETYPE' in a_body[j] :
-                 tokens.insert( i+j*len('.j')+len('.j'), { 'ID' : a_body[j]['BASETYPE']['ID'] })
+                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['BASETYPE']['ID'] })
                 if 'STRUCTINIT' in a_body[j] : # TODO:make rec
-                 tokens.insert( i+j*len('.j')+len('.j'), { 'ID' : a_body[j]['STRUCTINIT']['ID'] })
+                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['STRUCTINIT']['ID'] })
 
-                tokens.insert(i+j*len('.j=')+len('.j='), { 'UNKNOWN' : '=' }) 
+                tokens.insert(i+j*len('i.j=i.j;')+len('.j='), { 'UNKNOWN' : '=' }) 
 
-                tokens.insert(i+j*len('.j=i')+len('.j=i'), { 'ID' : b['ID'] })
-                tokens.insert(i+j*len('.j=i.')+len('.j=i.'), { 'UNKNOWN' : '.' }) 
+                tokens.insert(i+j*len('i.j=i.j;')+len('.j=i'), { 'ID' : b['ID'] })
+                tokens.insert(i+j*len('i.j=i.j;')+len('.j=i.'), { 'UNKNOWN' : '.' }) 
                 if 'BASETYPE' in b_body[j] :
-                 tokens.insert( i+j*len('.j=i.j')+len('.j=i.j'), { 'ID' : b_body[j]['BASETYPE']['ID'] })
+                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['BASETYPE']['ID'] })
                 if 'STRUCTINIT' in b_body[j] : # TODO:make rec
-                 tokens.insert( i+j*len('.j=i.j')+len('.j=i.j'), { 'ID' : b_body[j]['STRUCTINIT']['ID'] })
+                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['STRUCTINIT']['ID'] })
                 
+                tokens.insert(i+j*len('i.j=i.j;')+len('.j=i.j;'), { 'UNKNOWN' : ';' }) 
                 j += 1
         i += 1
 
