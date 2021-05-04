@@ -293,21 +293,29 @@ def symbol_table(trees) :
 # semantic actions
 # {{{
 # NOTE: still a little complicated, more parsing would be helpful
+## this should be handling things at tree level
 def struct_copy(tokens, s_table) :
-    """ Assuming a and b are of the same type, if a = b is seen, change it into a deep copy """
+    """ Assuming a and b are of the same type, if a = b is seen, change it into a deep copy.
+        Currently only goes one level deep
 
-    i = 0
-    while i < len(tokens)-len('a=b;') : # bounds checking, indication that a=b could be its own tree
+    """
 
-        # check a = b pattern is expandable
-        if ('ID' in tokens[i]             and 
+    def is_a_eq_b_pattern(tokens, s_table):
+        return ('ID' in tokens[i]             and 
             'UNKNOWN' in tokens[i+1]      and
             'ID' in tokens[i+2]           and 
             tokens[i+1]['UNKNOWN'] == '=' and
             tokens[i+3]['UNKNOWN'] == ';' and
             tokens[i]['ID'] in s_table    and
-            'STRUCTINIT' in s_table[tokens[i]['ID']]): # is a struct object
+            'STRUCTINIT' in s_table[tokens[i]['ID']])
 
+    i = 0
+    while i < len(tokens)-len('a=b;') : # bounds checking, indication that a=b could be its own tree
+
+        # check a = b pattern is expandable
+        if (is_a_eq_b_pattern(tokens,s_table)): # is a struct object
+
+            # TODO: need a way to iterate on the leaves of the tree
             a = s_table[
                     s_table[
                         tokens[i]['ID'] # name of object
