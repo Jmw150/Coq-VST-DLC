@@ -25,8 +25,7 @@ int main ()
     object_name2 = object_name1; 
 
     // into this
-    object_name2.struct_element_name = 
-        object_name1.struct_element_name;
+    //object_name2.struct_element_name = object_name1.struct_element_name;
 
     return 0;
 } 
