@@ -196,7 +196,7 @@ def structure_init_tree(name) :
                          [
                             '{\''+name.upper()+'INIT\':'+
                                 '{\'TYPE\':'+tokens[i+1][len('.ID.: '):-1]+','+
-                                       tokens[i+1][1:-1]+'}}'
+                                       tokens[i+2][1:-1]+'}}'
                          ]+
                          tokens[i+4:]) 
             i+= 1 
@@ -299,19 +299,61 @@ def struct_copy(tokens, s_table) :
 
     return tokens
             
-def print_types (trees) :
+def codegen_types (trees) :
     " prints turns primitive types trees into strings"
-    ret = ''
-    i = 0
     # outside of structs, functions
+    i = 0
     while i < len(trees) :
         if 'BASETYPE' in trees[i] :
             trees[i] = (trees[i]['BASETYPE']['TYPE'].lower() + ' ' +
                         trees[i]['BASETYPE']['ID'] + ';')
         i += 1
 
+    # inside structs
+    i = 0
+    while i < len(trees) :
+        if 'STRUCTDEF' in trees[i] :
+            j = 0
+            while j < len(trees[i]['STRUCTDEF']['BODY']) :
+                if 'BASETYPE' in trees[i]['STRUCTDEF']['BODY'][j] :
+                    trees[i]['STRUCTDEF']['BODY'][j] = (
+                        trees[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['TYPE'].lower() + ' ' +
+                        trees[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['ID'] + ';')
+                j += 1
+
+        i += 1
+            
+
     return trees
     
+def codegen_structinit(trees) :
+    " prints turns struct initialization trees into strings"
+    # outside of structs, functions
+    i = 0
+    while i < len(trees) :
+        if 'STRUCTINIT' in trees[i] :
+            trees[i] = (
+                'struct ' +
+                trees[i]['STRUCTINIT']['TYPE'].lower() + ' ' +
+                trees[i]['STRUCTINIT']['ID'] + ';')
+        i += 1
+
+    # inside structs
+    i = 0
+    while i < len(trees) :
+        if 'STRUCTDEF' in trees[i] :
+            j = 0
+            while j < len(trees[i]['STRUCTDEF']['BODY']) :
+                if 'STRUCTINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
+                    trees[i]['STRUCTDEF']['BODY'][j] = (
+                        'struct ' +
+                        trees[i]['STRUCTDEF']['BODY'][j]['STRUCTINIT']['TYPE'].lower() + ' ' +
+                        trees[i]['STRUCTDEF']['BODY'][j]['STRUCTINIT']['ID'] + ';')
+                j += 1
+
+        i += 1
+
+    return trees
 
 #def main() :
 f = get_file('example-program.c')
@@ -332,15 +374,16 @@ for primitive in tree :
 #t = main_tree(t)
 t = struct_tree(t)
 t = unknown_tree(t)
-print(str(t)+'\n')
+#print(str(t)+'\n')
 
 ## semantic actions
 #t = struct_copy(t,s_table)
 #print(t)
 
 # code generation
-print('code (p)')
-p = print_types(t)
-print(p)
+print('code (c)')
+c = codegen_types(t)
+c = codegen_structinit(c)
+print(c)
 
 #main()
