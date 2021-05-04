@@ -137,42 +137,45 @@ def main_tree(tokens) :
     "main from C"
     i = 0
     
-    while i < len(tokens)-len('im(){r0;}') : # type id ;
+    while i < len(tokens)-len('im(){r0;}') : # int main () {return 0;};
         if (tokens[i] == 'int' and
             tokens[i+1] == 'main' and
             tokens[i+2] == '(' and
             tokens[i+3] == ')' and
             tokens[i+4] == '{') :
+            print("CHEESE")
             j = i 
             while j < len(tokens)-len('r0;}') :
                 if (tokens[j] == 'return' and 
-                    tokens[j+2] == ';' and 
+                    tokens[j+2] == ';' and  # not limited to be single token jumps
                     tokens[j+3] == '}') :
                     tokens = (tokens[:i] +
                              ['{\'MAIN\':'+str(tokens[i+5:j])+'}']
                              + tokens[j+4:])
+                j +=1
         i+= 1
     
     return tokens
 
 
 def unknown_tree(tokens) :
-    "anything undefined"
+    "anything undefined, called last as clean up of undefined language"
     i = 0
     while i < len(tokens) :
         if (tokens[i][0] != '{' or tokens[i] == '{') : # not part of a tree
             tokens[i] = '{\'UNKOWN'+str(i)+'\':\''+str(tokens[i])+'\'}'
 
-        i+= 1
+        i+= 1 
 
-    print(tokens)
+    tok = []
+    for e in tokens : # e is annoyingly local
+        tok.append(eval(e)) 
 
-    t = []
-    for e in tokens :
-        print(e)
-        t.append(eval(e)) # nested structures not reached
+    #i = 0
+    #while i < len(tok['STRUCTDEF']['BODY']) :
+    #    i += 1
 
-    return t
+    return tok
 
 def structure_init_tree(name) :
     "structs/unions as they are initialized"
@@ -252,7 +255,7 @@ def symbol_table(tokens) :
     return table
 
 
-# still kind of tedious conceptually, even with hash trees
+# still kind of tedious conceptually
 def struct_copy(tokens, s_table) :
     """ If a = b is seen, change it into a deep copy
     """
@@ -300,13 +303,13 @@ f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
 print(f+'\n')
-t = raw_token(f)
 
 ## parsing stuff
+t = raw_token(f)
 t = id_tree(t)
 for primitive in tree :
     t = tree[primitive](t)
-t = main_tree(t)
+#t = main_tree(t)
 t = struct_tree(t)
 t = unknown_tree(t)
 print(str(t)+'\n')
