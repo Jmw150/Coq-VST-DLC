@@ -271,13 +271,19 @@ def symbol_table(trees) :
     table = {}
     i = 0
     while i < len(trees) :
-        # global primitive types
-        if 'BASETYPE' in trees[i] :
-            table.update( { trees[i]['BASETYPE']['ID'] : trees[i] } )
 
         # structs
         if 'STRUCTDEF' in trees[i] :
             table.update( { trees[i]['STRUCTDEF']['ID'] : trees[i] } )
+
+        # struct objects, only if previously defined (rule from C)
+        if 'STRUCTINIT' in trees[i] :
+            if trees[i]['STRUCTINIT']['TYPE'] in table :
+                table.update( { trees[i]['STRUCTINIT']['ID'] : trees[i] } )
+
+        # global primitive types
+        if 'BASETYPE' in trees[i] :
+            table.update( { trees[i]['BASETYPE']['ID'] : trees[i] } )
         
         i += 1
 
@@ -290,46 +296,48 @@ def symbol_table(trees) :
 def struct_copy(tokens, s_table) :
     """ Assuming a and b are of the same type, if a = b is seen, change it into a deep copy """
 
-    def expand_obj(tree) :
-        "expands 'a' to 'a.b' if b is an element of a, else ret a"
-        code = []
-        if tree['ID'] in s_table :
-            for e in s_table[string]['STRUCTDEF']['BODY'] : 
-                if 'BASETYPE' in e.keys() :
-                    code.append(string+'.'+e['BASETYPE']['ID']) 
-                elif 'STRUCTINIT' in e.keys() :
-                    #code.append(string+'.'+expand_obj(e['STRUCTINIT']['TYPE'])) #NOTE: tree expansion needed
-                    1
-        return code
-
     i = 0
     while i < len(tokens)-2 : # bounds checking, indication that a=b could be its own tree
-        if ('ID' in tokens[i] and 
-            'UNKNOWN' in tokens[i+1] and
-            'ID' in tokens[i+2] and 
+
+        # check a = b pattern is expandable
+        if ('ID' in tokens[i]             and 
+            'UNKNOWN' in tokens[i+1]      and
+            'ID' in tokens[i+2]           and 
             tokens[i+1]['UNKNOWN'] == '=' and
-            tokens[i]['ID'] in s_table and
-            'STRUCTDEF' in s_table[tokens[i]['ID']]) : # is of type struct
+            tokens[i]['ID'] in s_table    and
+            'STRUCTINIT' in s_table[tokens[i]['ID']]): # is a struct object
+
+            a = s_table[
+                    s_table[
+                        tokens[i]['ID'] # name of object
+                           ]
+                        ['STRUCTINIT']['TYPE'] # name of definition
+                       ]['STRUCTDEF'] # parts of 'a'
+            b = a 
+            # make some copies
+            a_body = a['BODY'][:]
+            b_body = b['BODY'][:]
 
             j = 0
-            while j < len(s_table[tokens[i]['ID']]['STRUCTDEF']['BODY']) :
+            while j < len(a_body) :
                 # make a.x = b.x for each element
-                j += 1 # to avoid writing len(i.j=i.j) twice
-                #tokens.insert(i+j*len('i'), tokens[i])  # self insertion
-                tokens.insert(i+j*len('.'), { 'UNKNOWN' : '.' }) 
-                if 'BASETYPE' in tokens[i]['STRUCTDEF']['BODY'][j] :
-                 tokens.insert(i+j*len('.j'), { 'ID' : tokens[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['ID'] } )
-                if 'STRUCTINIT' in tokens[i]['STRUCTDEF']['BODY'][j] : # TODO: make recursive
-                 tokens.insert(i+j*len('.j'), { 'ID' : tokens[i]['STRUCTDEF']['BODY'][j]['STRUCTINIT']['ID']})
-                tokens.insert(i+j*len('.j='), { 'UNKNOWN' : '=' }) 
-                tokens.insert(i+j*len('.j=i'), tokens[i+2])  
-                tokens.insert(i+j*len('.j=i.'), { 'UNKNOWN' : '.' }) 
-                if 'BASETYPE' in tokens[i]['STRUCTDEF']['BODY'][j] :
-                 tokens.insert(i+j*len('.j=i.j'), { 'ID' : tokens[i+2]['STRUCTDEF']['BODY'][j]['BASETYPE']['ID'] } )
-                if 'STRUCTINIT' in tokens[i]['STRUCTDEF']['BODY'][j] : # TODO: make recursive
-                 tokens.insert(i+j*len('.j=j.j'), { 'ID' : tokens[i+2]['STRUCTDEF']['BODY'][j]['STRUCTINIT']['ID']})
+                #tokens.insert(i+j*len('i'), a['ID'])  # self insertion
+                tokens.insert(i+j*len('.')+len('.'), { 'UNKNOWN' : '.' }) 
+                if 'BASETYPE' in a_body[j] :
+                 tokens.insert( i+j*len('.j')+len('.j'), { 'ID' : a_body[j]['BASETYPE']['ID'] })
+                if 'STRUCTINIT' in a_body[j] : # TODO:make rec
+                 tokens.insert( i+j*len('.j')+len('.j'), { 'ID' : a_body[j]['STRUCTINIT']['ID'] })
+
+                tokens.insert(i+j*len('.j=')+len('.j='), { 'UNKNOWN' : '=' }) 
+
+                tokens.insert(i+j*len('.j=i')+len('.j=i'), { 'ID' : b['ID'] })
+                tokens.insert(i+j*len('.j=i.')+len('.j=i.'), { 'UNKNOWN' : '.' }) 
+                if 'BASETYPE' in b_body[j] :
+                 tokens.insert( i+j*len('.j=i.j')+len('.j=i.j'), { 'ID' : b_body[j]['BASETYPE']['ID'] })
+                if 'STRUCTINIT' in b_body[j] : # TODO:make rec
+                 tokens.insert( i+j*len('.j=i.j')+len('.j=i.j'), { 'ID' : b_body[j]['STRUCTINIT']['ID'] })
                 
-                #j += 1
+                j += 1
         i += 1
 
     return tokens
@@ -448,9 +456,9 @@ print('trees (t)\n'+ str(t)+'\n')
 
 # symbol table
 st = symbol_table(t)
-#print('symbol table (st)')
-#for s in st :
-#    print(s, st[s])
+print('symbol table (st)')
+for s in st :
+    print(s, st[s])
 
 ## semantic actions
 print('semantic actions (t)')
