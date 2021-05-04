@@ -140,14 +140,14 @@ def main_tree(tokens) :
     while i < len(tokens)-len('im(){r0;}') : # int main () {return 0;};
         if (tokens[i] == 'int' and
             tokens[i+1] == 'main' and
-            tokens[i+2] == '(' and
+            tokens[i+2] == '(' and # NOTE: args not included for brevity
             tokens[i+3] == ')' and
             tokens[i+4] == '{') :
-            print("CHEESE")
+            print("inside main")
             j = i 
             while j < len(tokens)-len('r0;}') :
                 if (tokens[j] == 'return' and 
-                    tokens[j+2] == ';' and  # not limited to be single token jumps
+                    tokens[j+2] == ';' and  # NOTE: not limited to be single token jumps
                     tokens[j+3] == '}') :
                     tokens = (tokens[:i] +
                              ['{\'MAIN\':'+str(tokens[i+5:j])+'}']
@@ -178,7 +178,6 @@ def unknown_tree(tokens) :
             while j < len(tok[i]['STRUCTDEF']['BODY']):
                 tok[i]['STRUCTDEF']['BODY'][j] = eval(tok[i]['STRUCTDEF']['BODY'][j])
                 j += 1
-            #tok[i]['STRUCTDEF']['BODY'] = eval(tok[i]['STRUCTDEF']['BODY'])
         i += 1
 
     return tok
@@ -300,19 +299,32 @@ def struct_copy(tokens, s_table) :
 
     return tokens
             
+def print_types (trees) :
+    " prints turns primitive types trees into strings"
+    ret = ''
+    i = 0
+    # outside of structs, functions
+    while i < len(trees) :
+        if 'BASETYPE' in trees[i] :
+            trees[i] = (trees[i]['BASETYPE']['TYPE'].lower() + ' ' +
+                        trees[i]['BASETYPE']['ID'] + ';')
+        i += 1
 
+    return trees
+    
 
 #def main() :
+f = get_file('example-program.c')
+
 ## scanning stuff
-print('tokens')
-f = get_file('struct-copy.c')
+print('tokens (f)')
 f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
 print(f+'\n')
 
 ## parsing stuff
-print('trees')
+print('trees (t)')
 t = raw_token(f)
 t = id_tree(t)
 for primitive in tree :
@@ -322,12 +334,13 @@ t = struct_tree(t)
 t = unknown_tree(t)
 print(str(t)+'\n')
 
-## tabling
-#s_table = symbol_table(t)
-#print(str(s_table)+'\n')
-
 ## semantic actions
 #t = struct_copy(t,s_table)
 #print(t)
+
+# code generation
+print('code (p)')
+p = print_types(t)
+print(p)
 
 #main()
