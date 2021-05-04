@@ -163,7 +163,7 @@ def unknown_tree(tokens) :
     i = 0
     while i < len(tokens) :
         if (tokens[i][0] != '{' or tokens[i] == '{') : # not part of a tree
-            tokens[i] = '{\'UNKOWN'+str(i)+'\':\''+str(tokens[i])+'\'}'
+            tokens[i] = '{\'UNKNOWN\':\''+str(tokens[i])+'\'}'
 
         i+= 1 
 
@@ -171,9 +171,15 @@ def unknown_tree(tokens) :
     for e in tokens : # e is annoyingly local
         tok.append(eval(e)) 
 
-    #i = 0
-    #while i < len(tok['STRUCTDEF']['BODY']) :
-    #    i += 1
+    i = 0
+    while i < len(tok) :
+        if 'STRUCTDEF' in tok[i] :
+            j = 0 
+            while j < len(tok[i]['STRUCTDEF']['BODY']):
+                tok[i]['STRUCTDEF']['BODY'][j] = eval(tok[i]['STRUCTDEF']['BODY'][j])
+                j += 1
+            #tok[i]['STRUCTDEF']['BODY'] = eval(tok[i]['STRUCTDEF']['BODY'])
+        i += 1
 
     return tok
 
@@ -298,6 +304,7 @@ def struct_copy(tokens, s_table) :
 
 #def main() :
 ## scanning stuff
+print('tokens')
 f = get_file('struct-copy.c')
 f = remove_single_comments(f)
 f = remove_multi_comments(f)
@@ -305,6 +312,7 @@ f = remove_extra_whitespace(f)
 print(f+'\n')
 
 ## parsing stuff
+print('trees')
 t = raw_token(f)
 t = id_tree(t)
 for primitive in tree :
