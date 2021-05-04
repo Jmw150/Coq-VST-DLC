@@ -319,10 +319,8 @@ def codegen_types (trees) :
                     trees[i]['STRUCTDEF']['BODY'][j] = (
                         trees[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['TYPE'].lower() + ' ' +
                         trees[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['ID'] + ';')
-                j += 1
-
-        i += 1
-            
+                j += 1 
+        i += 1 
 
     return trees
     
@@ -355,6 +353,40 @@ def codegen_structinit(trees) :
 
     return trees
 
+def codegen_list(strings) :
+    s = ''
+    for e in strings :
+        s += e + ' ' 
+    return s
+
+def codegen_struct(trees) :
+    i = 0
+    while i < len(trees) :
+        if 'STRUCTDEF' in trees[i] :
+            trees[i] = (
+                'struct ' +
+                trees[i]['STRUCTDEF']['ID'].lower() + ' {' +
+                codegen_list(trees[i]['STRUCTDEF']['BODY']) +
+                '};') 
+        i += 1
+
+    return trees
+    
+def codegen_leafs(trees) :
+    i = 0
+    while i < len(trees) :
+        if 'ID' in trees[i] :
+            trees[i] = trees[i]['ID']
+        i += 1
+        
+    i = 0
+    while i < len(trees) :
+        if 'UNKNOWN' in trees[i] :
+            trees[i] = trees[i]['UNKNOWN']
+        i += 1
+
+    return trees
+
 #def main() :
 f = get_file('example-program.c')
 
@@ -374,7 +406,7 @@ for primitive in tree :
 #t = main_tree(t)
 t = struct_tree(t)
 t = unknown_tree(t)
-#print(str(t)+'\n')
+print(str(t)+'\n')
 
 ## semantic actions
 #t = struct_copy(t,s_table)
@@ -384,6 +416,9 @@ t = unknown_tree(t)
 print('code (c)')
 c = codegen_types(t)
 c = codegen_structinit(c)
+c = codegen_struct(c)
+c = codegen_leafs(c)
+c = codegen_list(c)
 print(c)
 
 #main()
