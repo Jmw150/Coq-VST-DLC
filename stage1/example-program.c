@@ -1,4 +1,4 @@
-// This program is used to test if basic grammar is working
+// This program is used to assist building up the basic grammar of C
 /* comment */
 
 // simple structures
