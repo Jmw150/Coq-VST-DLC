@@ -475,11 +475,11 @@ print('trees (t)\n'+ str(t)+'\n')
 #print(t)
 
 # code generation
-print('code (c)')
-c = codegen_types(t)
+#print('code (c)')
+#c = codegen_types(t)
 #c = codegen_struct(c)
 #c = codegen_leafs(c)
 #c = codegen_list(c)
-print(c)
+#print(c)
 
 #main()
