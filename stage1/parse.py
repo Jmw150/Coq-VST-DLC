@@ -209,6 +209,28 @@ def structure_init_tree(name) :
         return tokens
     return f
 
+# operator tree maker
+def operator_tree(operator):
+    def f(tokens):
+        i = 0
+        while i < len(tokens)-len('ti;') : # a op b
+            # type id ;
+            if (tokens[i] == name and 
+                tokens[i+1][:len('{\'ID\':')] == '{\'ID\':' and 
+                tokens[i+2][:len('{\'ID\':')] == '{\'ID\':' and 
+                tokens[i+3] == ';' ):
+               tokens = (tokens[:i]+
+                         [
+                            '{\''+name.upper()+'INIT\':'+
+                                '{\'TYPE\':'+tokens[i+1][len('.ID.: '):-1]+','+
+                                       tokens[i+2][1:-1]+'}}'
+                         ]+
+                         tokens[i+4:]) 
+            i+= 1 
+        return tokens
+    return f
+        
+
 def structure_tree(name):
     "for def of unions and structs, unions and structs have the same rules"
     def f(tokens) :
@@ -256,12 +278,6 @@ def function_tree(tokens) :
     
     return tokens
 
-# operator tree maker
-def operator_tree(operator):
-    def f(tokens):
-        
-        return tokens
-    return f
 
 import typing
 from typing import List 
@@ -275,7 +291,7 @@ def unknown_tree(tokens:List[str])-> List[dict] :
         i+= 1 
 
     tok = []
-    for e in tokens : # e is annoyingly local
+    for e in tokens : # e is local
         tok.append(eval(e)) 
 
     i = 0
@@ -288,7 +304,6 @@ def unknown_tree(tokens:List[str])-> List[dict] :
         i += 1
 
     return tok
-
 
 # make the syntax trees
 tree = {}
@@ -332,13 +347,10 @@ def symbol_table(trees) :
             table.update( { trees[i]['STRUCTDEF']['ID'] : trees[i] } )
 
         # struct objects, only if previously defined (rule from C)
+# NOTE need to check for primitives now
         if 'TYPEINIT' in trees[i] :
             if trees[i]['TYPEINIT']['TYPE'] in table :
                 table.update( { trees[i]['TYPEINIT']['ID'] : trees[i] } )
-
-        # global primitive types
-        if 'TYPEINIT' in trees[i] :
-            table.update( { trees[i]['TYPEINIT']['ID'] : trees[i] } )
         
         i += 1
 
@@ -413,15 +425,20 @@ def struct_copy(tokens, s_table) :
 
 # code generation
 # {{{
-# NOTE:need to desugar typedefs
 def codegen_types (trees) :
-    " prints turns primitive types trees into strings"
+    " prints turns types trees into strings"
     # outside of structs, functions
+
+    primitive_list = ['int','char','float','double','bool'] # TODO: check standard
     i = 0
     while i < len(trees) :
         if 'TYPEINIT' in trees[i] :
-            trees[i] = (trees[i]['TYPEINIT']['TYPE'].lower() + ' ' +
-                        trees[i]['TYPEINIT']['ID'] + ';')
+            Typeinit = trees[i]['TYPEINIT']
+            if Typeinit['TYPE'].lower() in primitive_list :
+                trees[i] = (Typeinit['TYPE'].lower() + ' ' + Typeinit['ID'] + ';')
+            else :
+                trees[i] = ('struct ' + Typeinit['TYPE'].lower() + ' ' + Typeinit['ID'] + ';')
+                
         i += 1
 
     # inside structs
@@ -431,49 +448,26 @@ def codegen_types (trees) :
             j = 0
             while j < len(trees[i]['STRUCTDEF']['BODY']) :
                 if 'TYPEINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
-                    trees[i]['STRUCTDEF']['BODY'][j] = (
-                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['TYPE'].lower() + ' ' +
-                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['ID'] + ';')
+                    Typeinit = trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']
+                    if Typeinit['TYPE'].lower() in primitive_list :
+                        trees[i] = (Typeinit['TYPE'].lower() + ' ' +
+                                    Typeinit['ID'] + ';')
+                    else :
+                        trees[i] = ('struct ' + Typeinit['TYPE'].lower() + ' ' +
+                                    Typeinit['ID'] + ';')
                 j += 1 
         i += 1 
 
     return trees
     
-def codegen_structinit(trees) :
-    " prints turns struct initialization trees into strings"
-    # outside of structs, functions
-    i = 0
-    while i < len(trees) :
-        if 'TYPEINIT' in trees[i] :
-            trees[i] = (
-                'struct ' +
-                trees[i]['TYPEINIT']['TYPE'].lower() + ' ' +
-                trees[i]['TYPEINIT']['ID'] + ';')
-        i += 1
-
-    # inside structs
-    i = 0
-    while i < len(trees) :
-        if 'STRUCTDEF' in trees[i] :
-            j = 0
-            while j < len(trees[i]['STRUCTDEF']['BODY']) :
-                if 'TYPEINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
-                    trees[i]['STRUCTDEF']['BODY'][j] = (
-                        'struct ' +
-                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['TYPE'].lower() + ' ' +
-                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['ID'] + ';')
-                j += 1 
-        i += 1
-
-    return trees
-
-def codegen_list(strings) :
+def codegen_list(strings: List[str])->str :
     s = ''
     for e in strings :
+        print(e)
         s += e + ' ' 
     return s
 
-def codegen_struct(trees) :
+def codegen_struct(trees : List[dict]) :
     i = 0
     while i < len(trees) :
         if 'STRUCTDEF' in trees[i] :
@@ -530,7 +524,6 @@ print('trees (t)\n'+ str(t)+'\n')
 # code generation
 #print('code (c)')
 #c = codegen_types(t)
-#c = codegen_structinit(c)
 #c = codegen_struct(c)
 #c = codegen_leafs(c)
 #c = codegen_list(c)
