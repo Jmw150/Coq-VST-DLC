@@ -1,5 +1,5 @@
 // A "simple" program transformer
-// C++ is too long winded with expressing computation
+// C++ is too long winded. This was a time consuming language choice
 
 #include <cctype>
 #include <cstdio>

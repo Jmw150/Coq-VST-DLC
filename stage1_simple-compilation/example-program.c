@@ -1,4 +1,4 @@
-// This program is used to test out the mini compiler
+// This program is used to test if basic grammar is working
 /* comment */
 
 // simple structures
