@@ -11,25 +11,47 @@ def get_file(filename) :
 
 # some boolean functions
 # {{{
-def is_alphanum_(string,i):
-    return ((string[i] >= 'a' and string[i] <= 'z') or
-            (string[i] >= 'A' and string[i] <= 'Z') or
-            (string[i] >= '0' and string[i] <= '9') or
-            (string[i] == '_'))
+def is_alphanum_(char):
+    return ((char >= 'a' and char <= 'z') or
+            (char >= 'A' and char <= 'Z') or
+            (char >= '0' and char <= '9') or
+            (char == '_'))
 
-def is_alpha_(string,i):
-    return ((string[i] >= 'a' and string[i] <= 'z') or
-            (string[i] >= 'A' and string[i] <= 'Z') or
-            (string[i] == '_'))
+def is_alpha_(char):
+    return ((char >= 'a' and char <= 'z') or
+            (char >= 'A' and char <= 'Z') or
+            (char == '_'))
+
+def is_digit(char) :
+    return (char >= '0' and char <= '9')
+
+
+def is_digitdot(char) :
+    return (char >= '0' and char <= '9') or char == '.'
+
+def is_int(string) :
+    for ch in string :
+        if not is_digit(ch) :
+            return False
+    return True
+
+def is_decimal(string) :
+    if not is_digit(string[0]) :
+        return False
+    for ch in string :
+        if not is_digitdot(ch) :
+            return False
+    return True
 
 def is_identifier(string):
     "is this string a C identifier"
-    if not is_alpha_(string, 0) :
+    if not is_alpha_(string[0]) :
         return False
     for ch in string :
-        if not (is_alpha_(ch, 0) or is_alphanum_(ch, 0)) :
+        if not is_alphanum_(ch) :
             return False
     return True
+
 # }}}
    
 # clean up code
@@ -68,15 +90,31 @@ def remove_extra_whitespace(string) :
 
 # tokenizing
 # {{{
-def raw_token(string) :
+def str_to_tokens(string : str) -> list :
     "the design of this is to treat characters like tokens if they are not part of the token list"
 
     def identifier(tokens, i) :
+        "C lang identifiers"
         temp = ''
-        if is_alpha_(string, i) :
+        if is_alpha_(string[i]) :
             temp += string[i]
             i += 1
-            while is_alphanum_(string, i) :
+            while is_alphanum_(string[i]) :
+                temp += string[i]
+                i += 1
+
+            tokens.append(temp)
+
+        return tokens, i 
+
+    # NOTE: need all valid number types from C
+    def number(tokens, i) :
+        " integer, decimal  "
+        temp = ''
+        if is_digit(string[i]) :
+            temp += string[i]
+            i += 1
+            while is_digitdot(string[i]) :
                 temp += string[i]
                 i += 1
 
@@ -85,15 +123,18 @@ def raw_token(string) :
         return tokens, i 
         
     spaced_tokens = []
+
+    # actual scanning part
     i = 0
     while i < len(string) :
         spaced_tokens, i = identifier(spaced_tokens, i)
+        spaced_tokens, i = number(spaced_tokens, i)
 
         spaced_tokens.append(string[i])
 
         i += 1
 
-    # remove spaces
+    # remove space tokens
     tokens = []
     for e in spaced_tokens :
         if e != ' ' :
@@ -122,8 +163,8 @@ def id_tree(tokens:list) :
 
     return marked_tokens
 
-def primitive_tree(name):
-    "stuff like int, and bool, not including assigning data yet"
+def primitive_tree(name : str):
+    "simple keywords like: int, bool"
     def f(tokens) :
         i = 0
         while i < len(tokens)-len('ti;') : # type id ;
@@ -133,7 +174,7 @@ def primitive_tree(name):
                 tokens[i+2] == ';' ):
                tokens = (tokens[:i]+
                          [
-                            '{\'BASETYPE\':{\'TYPE\':\''+name.upper()+'\','+
+                            '{\'TYPEINIT\':{\'TYPE\':\''+name.upper()+'\','+
                                        tokens[i+1][1:-1]+'}}'
                          ]+
                          tokens[i+3:]) 
@@ -196,7 +237,6 @@ def function_tree(tokens) :
             tokens[i+2] == '(' and # NOTE: args not included for brevity
             tokens[i+3] == ')' and
             tokens[i+4] == '{') :
-            print("inside main")
             j = i 
             while j < len(tokens)-len('r0;}') :
                 if (tokens[j] == 'return' and 
@@ -213,14 +253,10 @@ def function_tree(tokens) :
 # operator tree maker
 def operator_tree(operator):
     def f(tokens):
+        
         return tokens
     return f
 
-# assignment tree
-def assignment_tree(tokens):
-    " a = b "
-    
-    return tokens
 
 def unknown_tree(tokens) :
     "anything undefined, called last as clean up of undefined language"
@@ -259,6 +295,18 @@ for init in ['struct','union'] :
 union_tree = structure_tree('union')
 struct_tree = structure_tree('struct')
 
+def parse(tokens) :
+    "tokens to trees"
+
+    t = str_to_tokens(tokens)
+    t = id_tree(t)
+    for primitive in tree :
+        t = tree[primitive](t)
+    t = struct_tree(t)
+    t = unknown_tree(t)
+
+    return t
+
 # }}}
 
 # symbol table
@@ -277,13 +325,13 @@ def symbol_table(trees) :
             table.update( { trees[i]['STRUCTDEF']['ID'] : trees[i] } )
 
         # struct objects, only if previously defined (rule from C)
-        if 'STRUCTINIT' in trees[i] :
-            if trees[i]['STRUCTINIT']['TYPE'] in table :
-                table.update( { trees[i]['STRUCTINIT']['ID'] : trees[i] } )
+        if 'TYPEINIT' in trees[i] :
+            if trees[i]['TYPEINIT']['TYPE'] in table :
+                table.update( { trees[i]['TYPEINIT']['ID'] : trees[i] } )
 
         # global primitive types
-        if 'BASETYPE' in trees[i] :
-            table.update( { trees[i]['BASETYPE']['ID'] : trees[i] } )
+        if 'TYPEINIT' in trees[i] :
+            table.update( { trees[i]['TYPEINIT']['ID'] : trees[i] } )
         
         i += 1
 
@@ -300,14 +348,15 @@ def struct_copy(tokens, s_table) :
 
     """
 
+    # NOTE: needs to accept a.* = b.*
     def is_a_eq_b_pattern(tokens, s_table):
-        return ('ID' in tokens[i]             and 
+        return ('ID' in tokens[i]         and 
             'UNKNOWN' in tokens[i+1]      and
-            'ID' in tokens[i+2]           and 
             tokens[i+1]['UNKNOWN'] == '=' and
+            'ID' in tokens[i+2]           and 
             tokens[i+3]['UNKNOWN'] == ';' and
             tokens[i]['ID'] in s_table    and
-            'STRUCTINIT' in s_table[tokens[i]['ID']])
+            'TYPEINIT' in s_table[tokens[i]['ID']])
 
     i = 0
     while i < len(tokens)-len('a=b;') : # bounds checking, indication that a=b could be its own tree
@@ -320,7 +369,7 @@ def struct_copy(tokens, s_table) :
                     s_table[
                         tokens[i]['ID'] # name of object
                            ]
-                        ['STRUCTINIT']['TYPE'] # name of definition
+                        ['TYPEINIT']['TYPE'] # name of definition
                        ]['STRUCTDEF'] # parts of 'a'
             b = a 
             # make some copies
@@ -334,19 +383,19 @@ def struct_copy(tokens, s_table) :
                 # make a.x = b.x for each element
                 tokens.insert(i+j*len('i.j=i.j;')+len(''), a['ID'])  # self insertion
                 tokens.insert(i+j*len('i.j=i.j;')+len('.'), { 'UNKNOWN' : '.' }) 
-                if 'BASETYPE' in a_body[j] :
-                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['BASETYPE']['ID'] })
-                if 'STRUCTINIT' in a_body[j] : # TODO:make rec
-                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['STRUCTINIT']['ID'] })
+                if 'TYPEINIT' in a_body[j] :
+                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['TYPEINIT']['ID'] })
+                if 'TYPEINIT' in a_body[j] : # TODO:make rec
+                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['TYPEINIT']['ID'] })
 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j='), { 'UNKNOWN' : '=' }) 
 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j=i'), { 'ID' : b['ID'] })
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j=i.'), { 'UNKNOWN' : '.' }) 
-                if 'BASETYPE' in b_body[j] :
-                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['BASETYPE']['ID'] })
-                if 'STRUCTINIT' in b_body[j] : # TODO:make rec
-                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['STRUCTINIT']['ID'] })
+                if 'TYPEINIT' in b_body[j] :
+                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['TYPEINIT']['ID'] })
+                if 'TYPEINIT' in b_body[j] : # TODO:make rec
+                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['TYPEINIT']['ID'] })
                 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j=i.j;'), { 'UNKNOWN' : ';' }) 
                 j += 1
@@ -363,9 +412,9 @@ def codegen_types (trees) :
     # outside of structs, functions
     i = 0
     while i < len(trees) :
-        if 'BASETYPE' in trees[i] :
-            trees[i] = (trees[i]['BASETYPE']['TYPE'].lower() + ' ' +
-                        trees[i]['BASETYPE']['ID'] + ';')
+        if 'TYPEINIT' in trees[i] :
+            trees[i] = (trees[i]['TYPEINIT']['TYPE'].lower() + ' ' +
+                        trees[i]['TYPEINIT']['ID'] + ';')
         i += 1
 
     # inside structs
@@ -374,10 +423,10 @@ def codegen_types (trees) :
         if 'STRUCTDEF' in trees[i] :
             j = 0
             while j < len(trees[i]['STRUCTDEF']['BODY']) :
-                if 'BASETYPE' in trees[i]['STRUCTDEF']['BODY'][j] :
+                if 'TYPEINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
                     trees[i]['STRUCTDEF']['BODY'][j] = (
-                        trees[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['TYPE'].lower() + ' ' +
-                        trees[i]['STRUCTDEF']['BODY'][j]['BASETYPE']['ID'] + ';')
+                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['TYPE'].lower() + ' ' +
+                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['ID'] + ';')
                 j += 1 
         i += 1 
 
@@ -388,11 +437,11 @@ def codegen_structinit(trees) :
     # outside of structs, functions
     i = 0
     while i < len(trees) :
-        if 'STRUCTINIT' in trees[i] :
+        if 'TYPEINIT' in trees[i] :
             trees[i] = (
                 'struct ' +
-                trees[i]['STRUCTINIT']['TYPE'].lower() + ' ' +
-                trees[i]['STRUCTINIT']['ID'] + ';')
+                trees[i]['TYPEINIT']['TYPE'].lower() + ' ' +
+                trees[i]['TYPEINIT']['ID'] + ';')
         i += 1
 
     # inside structs
@@ -401,11 +450,11 @@ def codegen_structinit(trees) :
         if 'STRUCTDEF' in trees[i] :
             j = 0
             while j < len(trees[i]['STRUCTDEF']['BODY']) :
-                if 'STRUCTINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
+                if 'TYPEINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
                     trees[i]['STRUCTDEF']['BODY'][j] = (
                         'struct ' +
-                        trees[i]['STRUCTDEF']['BODY'][j]['STRUCTINIT']['TYPE'].lower() + ' ' +
-                        trees[i]['STRUCTDEF']['BODY'][j]['STRUCTINIT']['ID'] + ';')
+                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['TYPE'].lower() + ' ' +
+                        trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']['ID'] + ';')
                 j += 1 
         i += 1
 
@@ -458,32 +507,26 @@ f = remove_extra_whitespace(f)
 print('tokens (f)\n'+ f+'\n')
 
 ## parsing stuff
-t = raw_token(f)
-t = id_tree(t)
-for primitive in tree :
-    t = tree[primitive](t)
-t = struct_tree(t)
-t = unknown_tree(t)
+t = parse(f)
 print('trees (t)\n'+ str(t)+'\n')
 
 # symbol table
-st = symbol_table(t)
-print('symbol table (st)')
-for s in st :
-    print(s, st[s])
+#st = symbol_table(t)
+#print('symbol table (st)')
+#for s in st : print(s, st[s])
 
 ## semantic actions
-print('semantic actions (t)')
-t = struct_copy(t,st)
+#print('semantic actions (t)')
+#t = struct_copy(t,st)
 #print(t)
 
 # code generation
 print('code (c)')
-c = codegen_types(t)
-c = codegen_structinit(c)
-c = codegen_struct(c)
-c = codegen_leafs(c)
-c = codegen_list(c)
-print(c)
+#c = codegen_types(t)
+#c = codegen_structinit(c)
+#c = codegen_struct(c)
+#c = codegen_leafs(c)
+#c = codegen_list(c)
+#print(c)
 
 #main()

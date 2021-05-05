@@ -1,6 +1,9 @@
 // This program is used to test out the mini compiler
+/* comment */
 
+// simple structures
 int some_int;
+float some_float;
 
 // structures can be called like this
 struct struct_name
@@ -9,12 +12,24 @@ struct struct_name
     float flo;
 };
 
+union union_name {
+    int u_int;
+    floar u_int;
+};
+
+// scope of structures
 struct bigger_struct
 {
     struct struct_name s_obj;
 };
 
-/* comment */
+struct even_bigger_struct
+{
+    struct bigger_struct bs_obj;
+    int struct_leaf;
+};
+
+typedef even_bigger_struct ebs;
 
 int main ()
 {
