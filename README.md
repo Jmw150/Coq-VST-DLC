@@ -1,4 +1,6 @@
-# Overall Project Milestones
+# Coq verified software toolchain unfinished features
+
+## Overall Project Milestones
 
 -  casting between integers and pointers.
 
@@ -7,6 +9,8 @@
     * Characterizes direct memory access "int* ptr = 10;" 
     
         + Sound may not automatically mean safe in this case
+
+        + Could include a way to give a safe memory map with C code
 
 -  goto statements.
 
