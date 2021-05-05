@@ -1,0 +1,10 @@
+#!/bin/bash
+program=parser.py
+
+for i in {0..5} # 5 tests
+do
+    echo "test$i"
+    python -i $program tests/test$i.c > testout.c
+    astyle --style=bsd -U -k1 -xf -xC62 -p -xb -j
+    diff testout.c outputs/test$i.c
+done
