@@ -11,31 +11,31 @@ def get_file(filename) :
 
 # some boolean functions
 # {{{
-def is_alphanum_(char):
+def is_alphanum_(char) -> bool:
     return ((char >= 'a' and char <= 'z') or
             (char >= 'A' and char <= 'Z') or
             (char >= '0' and char <= '9') or
             (char == '_'))
 
-def is_alpha_(char):
+def is_alpha_(char) -> bool:
     return ((char >= 'a' and char <= 'z') or
             (char >= 'A' and char <= 'Z') or
             (char == '_'))
 
-def is_digit(char) :
+def is_digit(char) -> bool :
     return (char >= '0' and char <= '9')
 
 
-def is_digitdot(char) :
+def is_digitdot(char) -> bool :
     return (char >= '0' and char <= '9') or char == '.'
 
-def is_int(string) :
+def is_int(string) -> bool:
     for ch in string :
         if not is_digit(ch) :
             return False
     return True
 
-def is_decimal(string) :
+def is_decimal(string) -> bool:
     if not is_digit(string[0]) :
         return False
     for ch in string :
@@ -43,7 +43,7 @@ def is_decimal(string) :
             return False
     return True
 
-def is_identifier(string):
+def is_identifier(string) -> bool:
     "is this string a C identifier"
     if not is_alpha_(string[0]) :
         return False
@@ -122,7 +122,7 @@ def str_to_tokens(string : str) -> list :
 
         return tokens, i 
         
-    spaced_tokens = []
+    spaced_tokens : list = []
 
     # actual scanning part
     i = 0
@@ -148,7 +148,13 @@ def str_to_tokens(string : str) -> list :
 def id_tree(tokens:list) :
     "put markers like ID on tokens"
     # from C17 standard
-    keywords = ['auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','inline','int','long','register','restrict','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','_Alignas','_Alignof','_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn','_Static_assert','_Thread_local']
+    keywords = ['auto','break','case','char','const','continue','default',
+        'do','double','else','enum','extern','float','for','goto','if',
+        'inline','int','long','register','restrict','return','short',
+        'signed','sizeof','static','struct','switch','typedef','union',
+        'unsigned','void','volatile','while','_Alignas','_Alignof',
+        '_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn',
+        '_Static_assert','_Thread_local']
     keywords.append('bool') # some common stuff
     keywords.append('main') 
 
@@ -257,8 +263,9 @@ def operator_tree(operator):
         return tokens
     return f
 
-
-def unknown_tree(tokens) :
+import typing
+from typing import List 
+def unknown_tree(tokens:List[str])-> List[dict] :
     "anything undefined, called last as clean up of undefined language"
     i = 0
     while i < len(tokens) :
@@ -504,7 +511,7 @@ f = get_file('example-program.c')
 f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
-print('tokens (f)\n'+ f+'\n')
+#print('tokens (f)\n'+ f+'\n')
 
 ## parsing stuff
 t = parse(f)
@@ -521,7 +528,7 @@ print('trees (t)\n'+ str(t)+'\n')
 #print(t)
 
 # code generation
-print('code (c)')
+#print('code (c)')
 #c = codegen_types(t)
 #c = codegen_structinit(c)
 #c = codegen_struct(c)

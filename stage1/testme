@@ -5,6 +5,9 @@ pretty_printer=astyle
 
 for i in {0..2} # n tests
 do
+    # type check python
+    mypy $program 
+
     echo "test$i"
     python -i $program tests/test$i.c > testout.c
     $pretty_printer testout.c > /dev/null
