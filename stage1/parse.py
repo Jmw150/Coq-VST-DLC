@@ -9,7 +9,7 @@ def get_file(filename) :
     return File
 
 
-# some boolean functions
+# boolean functions and facts
 # {{{
 def is_alphanum_(char) -> bool:
     return ((char >= 'a' and char <= 'z') or
@@ -52,6 +52,17 @@ def is_identifier(string) -> bool:
             return False
     return True
 
+
+# from C17 standard
+keywords = ['auto','break','case','char','const','continue','default',
+        'do','double','else','enum','extern','float','for','goto','if',
+        'inline','int','long','register','restrict','return','short',
+        'signed','sizeof','static','struct','switch','typedef','union',
+        'unsigned','void','volatile','while','_Alignas','_Alignof',
+        '_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn',
+        '_Static_assert','_Thread_local']
+keywords.append('bool') # some common stuff
+keywords.append('main') 
 # }}}
    
 # clean up code
@@ -147,17 +158,6 @@ def str_to_tokens(string : str) -> list :
 # {{{
 def id_tree(tokens:list) :
     "put markers like ID on tokens"
-    # from C17 standard
-    keywords = ['auto','break','case','char','const','continue','default',
-        'do','double','else','enum','extern','float','for','goto','if',
-        'inline','int','long','register','restrict','return','short',
-        'signed','sizeof','static','struct','switch','typedef','union',
-        'unsigned','void','volatile','while','_Alignas','_Alignof',
-        '_Atomic','_Bool','_Complex','_Generic','_Imaginary','_Noreturn',
-        '_Static_assert','_Thread_local']
-    keywords.append('bool') # some common stuff
-    keywords.append('main') 
-
     marked_tokens = []
     for e in tokens :
         if e in keywords :
@@ -169,7 +169,7 @@ def id_tree(tokens:list) :
 
     return marked_tokens
 
-def type_tree(name : str):
+def typeinit_tree(name : str):
     "simple keywords like: int, bool"
     def f(tokens) :
         i = 0
@@ -191,19 +191,21 @@ def type_tree(name : str):
                 tokens[i+3] == ';' ):
                tokens = (tokens[:i]+
                          [
-                            '{\'TYPEINIT\':{\'TYPE\':\''+name+'\','+
-                                       tokens[i+1][1:-1]+'}}'
+                            '{\'TYPEINIT\':'+
+                                '{\'TYPE\':'+tokens[i+1][len('{\'ID\':'):-1]+','+
+                                       tokens[i+2][1:-1]+'}}'
                          ]+
                          tokens[i+4:]) 
             i+= 1 
         return tokens
     return f
 
-def structure_tree(name):
-    "for def of unions and structs, unions and structs have the same rules"
+def typedef_tree(name):
+    """type definitions in general: struct, union, function, typedef keyword"""
     def f(tokens) :
         i = 0
         while i < len(tokens)-len('si{};') : # struct id { } ;
+            # is structure
             if tokens[i] == name :
                 start = i
                 if tokens[i+1][:len('{\'ID\':')] == '{\'ID\':' and tokens[i+2] == '{' :
@@ -213,15 +215,18 @@ def structure_tree(name):
                 if tokens[j] == '}' and tokens[j+1] == ';' :
                     tokens = (tokens[:start]+
                              [
-                                '{\'' +str(name.upper())+ 'DEF\':{'+        # struct
-                                    str(tokens[start+1][1:-1])+         # id
-                                ',\'BODY\':'+str(tokens[start+3:j])+'}}' # body
+                                '{\'TYPEDEF\':{'+                         # struct
+                                    '\'TYPE\': \''+name+'\','+         # type
+                                    str(tokens[start+1][1:-1])+','          # id
+                                '\'BODY\':'+str(tokens[start+3:j])+'}}' # body
                              ]
                            + tokens[j+2:])
             i+= 1
     
         return tokens 
     return f
+
+
 
 import typing
 from typing import List 
@@ -233,12 +238,12 @@ def unknown_tree(tokens:List[str])-> List[dict] :
     while i < len(tokens) :
         if (tokens[i][0] != '{' or tokens[i] == '{') : # not part of a tree
             tokens[i] = '{\'UNKNOWN\':\''+str(tokens[i])+'\'}'
-        if 'STRUCTDEF' in tokens[i] and type(tokens[i]) != str :
-            tok = tokens[i]['STRUCTDEF']['BODY']
+        if 'TYPEDEF' in tokens[i] and type(tokens[i]) != str :
+            tok = tokens[i]['TYPEDEF']['BODY']
             j = 0 
             while j < len(tok):
                 if (tok[j][0] != '{' or tok[j] == '{') : # not part of a tree
-                    tokens[i]['STRUCTDEF']['BODY'][j] = '{\'UNKNOWN\':\''+str(tok[j])+'\'}'
+                    tokens[i]['TYPEDEF']['BODY'][j] = '{\'UNKNOWN\':\''+str(tok[j])+'\'}'
                 j += 1
         i+= 1 
     return tokens
@@ -251,10 +256,10 @@ def intohash(tokens) :
 
     i = 0
     while i < len(tok) :
-        if 'STRUCTDEF' in tok[i] :
+        if 'TYPEDEF' in tok[i] :
             j = 0 
-            while j < len(tok[i]['STRUCTDEF']['BODY']):
-                tok[i]['STRUCTDEF']['BODY'][j] = eval(tok[i]['STRUCTDEF']['BODY'][j])
+            while j < len(tok[i]['TYPEDEF']['BODY']):
+                tok[i]['TYPEDEF']['BODY'][j] = eval(tok[i]['TYPEDEF']['BODY'][j])
                 j += 1
         i += 1
 
@@ -264,10 +269,10 @@ def intohash(tokens) :
 tree = {}
 # primitives
 for prime in ['char','int','float','double','_Bool','struct','union'] :
-    tree.update({ prime : type_tree(prime) })
+    tree.update({ prime : typeinit_tree(prime) })
 # declaring stuff
-union_tree = structure_tree('union')
-struct_tree = structure_tree('struct')
+union_tree = typedef_tree('union')
+struct_tree = typedef_tree('struct')
 
 def parse(tokens) :
     "tokens to trees"
@@ -277,6 +282,7 @@ def parse(tokens) :
     for primitive in tree :
         t = tree[primitive](t)
     t = struct_tree(t)
+    t = union_tree(t)
     t = unknown_tree(t)
     t = intohash(t)
 
@@ -295,14 +301,14 @@ def symbol_table(trees) :
     i = 0
     while i < len(trees) :
 
-        # structs
-        if 'STRUCTDEF' in trees[i] :
-            table.update( { trees[i]['STRUCTDEF']['ID'] : trees[i] } )
+        # structs, and sub elements 
+        if 'TYPEDEF' in trees[i] :
+            table.update( { trees[i]['TYPEDEF']['ID'] : trees[i] } )
+            table.update( symbol_table(trees[i]['TYPEDEF']['BODY']) )
 
-        # struct objects, only if previously defined (rule from C)
-# NOTE need to check for primitives now
-        if 'TYPEINIT' in trees[i] :
-            if trees[i]['TYPEINIT']['TYPE'] in table :
+        # primitives
+        elif 'TYPEINIT' in trees[i] :
+           # if not trees[i]['TYPEINIT']['TYPE'] in table :
                 table.update( { trees[i]['TYPEINIT']['ID'] : trees[i] } )
         
         i += 1
@@ -312,6 +318,19 @@ def symbol_table(trees) :
 
 # semantic actions
 # {{{
+
+def get_parent_of(child, s_table) :
+
+    # is own parent
+    if child['ID'] in keywords : 
+        return child['ID']
+    
+    a = s_table[ child['ID'] ]['TYPEINIT']['TYPE']
+    a = s_table[a]
+    return a
+
+
+
 # NOTE: still a little complicated, more parsing would be helpful
 ## this should be handling things at tree level
 def struct_copy(tokens, s_table) :
@@ -332,22 +351,19 @@ def struct_copy(tokens, s_table) :
 
     i = 0
     while i < len(tokens)-len('a=b;') : # bounds checking, indication that a=b could be its own tree
-
         # check a = b pattern is expandable
+        #print(tokens[i:i+3])
         if (is_a_eq_b_pattern(tokens,s_table)): # is a struct object
 
             # TODO: need a way to iterate on the leaves of the tree
-            a = s_table[
-                    s_table[
-                        tokens[i]['ID'] # name of object
-                           ]
-                        ['TYPEINIT']['TYPE'] # name of definition
-                       ]['STRUCTDEF'] # parts of 'a'
+    
+            a = get_parent_of(tokens[i],s_table)['TYPEDEF']
+            #print(tokens[i], a)
             b = a 
             # make some copies
             a_body = a['BODY'][:]
-            b_body = b['BODY'][:]
-
+            b_body = a_body[:]
+            
             tokens = tokens[:i] + tokens[i+4:]
 
             j = 0
@@ -378,56 +394,47 @@ def struct_copy(tokens, s_table) :
 
 # code generation
 # {{{
-def codegen_types (trees) :
+def codegen_types (trees,s_table) :
     " prints turns types trees into strings"
     # outside of structs, functions
 
     primitive_list = ['int','char','float','double','bool'] # TODO: check standard
     i = 0
     while i < len(trees) :
+        # base case
         if 'TYPEINIT' in trees[i] :
             Typeinit = trees[i]['TYPEINIT']
+
+            # primitive
             if Typeinit['TYPE'] in primitive_list :
                 trees[i] = (Typeinit['TYPE'] + ' ' + Typeinit['ID'] + ';')
             else :
-                trees[i] = ('struct ' + Typeinit['TYPE'] + ' ' + Typeinit['ID'] + ';')
-                
-        i += 1
+            # user defined
+                trees[i] = ('struct ' #get_parent_of(Typeinit, s_table)['TYPEDEF']['TYPE']
+                         + Typeinit['TYPE'] + ' ' + Typeinit['ID'] + ';')
 
-    # inside structs
-    i = 0
-    while i < len(trees) :
-        if 'STRUCTDEF' in trees[i] :
-            j = 0
-            while j < len(trees[i]['STRUCTDEF']['BODY']) :
-                if 'TYPEINIT' in trees[i]['STRUCTDEF']['BODY'][j] :
-                    Typeinit = trees[i]['STRUCTDEF']['BODY'][j]['TYPEINIT']
-                    if Typeinit['TYPE'] in primitive_list :
-                        trees[i] = (Typeinit['TYPE'] + ' ' +
-                                    Typeinit['ID'] + ';')
-                    else :
-                        trees[i] = ('struct ' + Typeinit['TYPE'] + ' ' +
-                                    Typeinit['ID'] + ';')
-                j += 1 
-        i += 1 
+        # recursive case
+        if 'TYPEDEF' in trees[i] :
+            trees[i]['TYPEDEF']['BODY'] = codegen_types(trees[i]['TYPEDEF']['BODY'],s_table)
+        i += 1
 
     return trees
     
 def codegen_list(strings: List[str])->str :
     s = ''
     for e in strings :
-        print(e)
         s += e + ' ' 
     return s
 
 def codegen_struct(trees : List[dict]) :
     i = 0
     while i < len(trees) :
-        if 'STRUCTDEF' in trees[i] :
+        if 'TYPEDEF' in trees[i] :
             trees[i] = (
-                'struct ' +
-                trees[i]['STRUCTDEF']['ID'] + ' {' +
-                codegen_list(trees[i]['STRUCTDEF']['BODY']) +
+                trees[i]['TYPEDEF']['TYPE'] +
+                trees[i]['TYPEDEF']['ID'] + 
+                ' {' +
+                    codegen_list(trees[i]['TYPEDEF']['BODY']) +
                 '};') 
         i += 1
 
@@ -448,6 +455,14 @@ def codegen_leafs(trees) :
         i += 1
 
     return trees
+
+def code_generation(trees,s_table) :
+    c = codegen_types(trees,s_table)
+    c = codegen_struct(c)
+    c = codegen_leafs(c)
+    c = codegen_list(c)
+    return c
+    
 # }}}
 
 
@@ -458,28 +473,26 @@ f = get_file('example-program.c')
 f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
-#print('tokens (f)\n'+ f+'\n')
+print('tokens (f)\n'+ f+'\n')
 
 ## parsing stuff
 t = parse(f)
-print('trees (t)\n'+ str(t)+'\n')
+#print('trees (t)\n')
+#for b in t : print(b)
 
 # symbol table
-#st = symbol_table(t)
-#print('symbol table (st)')
+st = symbol_table(t)
+print('symbol table (st)')
 #for s in st : print(s, st[s])
 
 ## semantic actions
 #print('semantic actions (t)')
-#t = struct_copy(t,st)
+t = struct_copy(t,st)
 #print(t)
 
 # code generation
-#print('code (c)')
-#c = codegen_types(t)
-#c = codegen_struct(c)
-#c = codegen_leafs(c)
-#c = codegen_list(c)
-#print(c)
+print('code (c)')
+c = code_generation(t,st)
+print(c)
 
 #main()

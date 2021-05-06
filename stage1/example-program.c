@@ -2,42 +2,32 @@
 /* comment */
 
 // simple structures
-int some_int;
-float some_float;
+//int some_int;
+//float some_float;
 
 // structures can be called like this
 struct struct_name
 {
-    int struct_element_name;
-    float flo;
+    int int_e;
+    float float_e;
 };
 
-union union_name {
-    int u_int;
-    floar u_int;
-};
+//union union_name { int u_int; float u_float; };
 
 // scope of structures
-struct bigger_struct
-{
-    struct struct_name s_obj;
-};
+//struct bigger_struct { struct struct_name s_obj; };
 
-struct even_bigger_struct
-{
-    struct bigger_struct bs_obj;
-    int struct_leaf;
-};
+//struct even_bigger_struct { struct bigger_struct bs_obj; int struct_leaf; };
 
-typedef even_bigger_struct ebs;
+//typedef struct even_bigger_struct ebs;
 
 int main ()
 {
-    struct struct_name object_name1;
-    struct struct_name object_name2;
+    struct struct_name obj1;
+    struct struct_name obj2;
 
     // turn this
-    object_name2 = object_name1; 
+    obj1 = obj2;
 
     // into this
     //object_name2.struct_element_name = object_name1.struct_element_name;
