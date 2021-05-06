@@ -1,12 +1,7 @@
-struct defname
-{
+struct defname {
     int struct_element_name;
 };
-
-
-int main ()
-{
+int main ( ) {
     struct defname objname;
-
-    return 0;
+    return 0 ;
 }

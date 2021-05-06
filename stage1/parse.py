@@ -357,11 +357,9 @@ def struct_copy(tokens, s_table) :
 
             # TODO: need a way to iterate on the leaves of the tree
     
-            a = get_parent_of(tokens[i],s_table)['TYPEDEF']
-            #print(tokens[i], a)
-            b = a 
-            # make some copies
-            a_body = a['BODY'][:]
+            a = tokens[i]
+            a_body = get_parent_of(tokens[i],s_table)['TYPEDEF']['BODY'][:]
+            b = tokens[i+2]
             b_body = a_body[:]
             
             tokens = tokens[:i] + tokens[i+4:]
@@ -369,21 +367,15 @@ def struct_copy(tokens, s_table) :
             j = 0
             while j < len(a_body) :
                 # make a.x = b.x for each element
-                tokens.insert(i+j*len('i.j=i.j;')+len(''), a['ID'])  # self insertion
+                tokens.insert(i+j*len('i.j=i.j;')+len(''), a) 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.'), { 'UNKNOWN' : '.' }) 
-                if 'TYPEINIT' in a_body[j] :
-                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['TYPEINIT']['ID'] })
-                if 'TYPEINIT' in a_body[j] : # TODO:make rec
-                 tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['TYPEINIT']['ID'] })
+                tokens.insert(i+j*len('i.j=i.j;')+len('.j'), { 'ID' : a_body[j]['TYPEINIT']['ID'] })
 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j='), { 'UNKNOWN' : '=' }) 
 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j=i'), { 'ID' : b['ID'] })
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j=i.'), { 'UNKNOWN' : '.' }) 
-                if 'TYPEINIT' in b_body[j] :
-                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['TYPEINIT']['ID'] })
-                if 'TYPEINIT' in b_body[j] : # TODO:make rec
-                 tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['TYPEINIT']['ID'] })
+                tokens.insert( i+j*len('i.j=i.j;')+len('.j=i.j'), { 'ID' : b_body[j]['TYPEINIT']['ID'] })
                 
                 tokens.insert(i+j*len('i.j=i.j;')+len('.j=i.j;'), { 'UNKNOWN' : ';' }) 
                 j += 1
@@ -431,7 +423,7 @@ def codegen_struct(trees : List[dict]) :
     while i < len(trees) :
         if 'TYPEDEF' in trees[i] :
             trees[i] = (
-                trees[i]['TYPEDEF']['TYPE'] +
+                trees[i]['TYPEDEF']['TYPE'] + ' ' +
                 trees[i]['TYPEDEF']['ID'] + 
                 ' {' +
                     codegen_list(trees[i]['TYPEDEF']['BODY']) +
@@ -467,13 +459,14 @@ def code_generation(trees,s_table) :
 
 
 #def main() :
-f = get_file('example-program.c')
+import sys
+f = get_file(sys.argv[1])
 
 ## scanning stuff
 f = remove_single_comments(f)
 f = remove_multi_comments(f)
 f = remove_extra_whitespace(f)
-print('tokens (f)\n'+ f+'\n')
+#print('tokens (f)\n'+ f+'\n')
 
 ## parsing stuff
 t = parse(f)
@@ -482,7 +475,7 @@ t = parse(f)
 
 # symbol table
 st = symbol_table(t)
-print('symbol table (st)')
+#print('symbol table (st)')
 #for s in st : print(s, st[s])
 
 ## semantic actions
@@ -491,7 +484,7 @@ t = struct_copy(t,st)
 #print(t)
 
 # code generation
-print('code (c)')
+#print('code (c)')
 c = code_generation(t,st)
 print(c)
 
