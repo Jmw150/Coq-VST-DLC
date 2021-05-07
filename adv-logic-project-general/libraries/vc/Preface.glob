@@ -1,7 +1,0 @@
-DIGEST 3f06bd2d98685f696fbda2fde19d64e5
-FVC.Preface
-R7349:7366 Coq.Strings.String <> <> lib
-R7403:7419 VST.veric.version <> <> lib
-def 7493:7512 <> Unnamed_thm
-R7505:7507 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7498:7504 VST.veric.version <> release def
