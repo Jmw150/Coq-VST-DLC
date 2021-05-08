@@ -1,0 +1,42 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+\subsection{Interesting Discoveries}
+
+Looking at the limitations of the VST system for C code, such missing features may initially seem like mild feature exclusions. But these issues turn out to be common features of more hardware focused programming. Goto's, duff machines, and pointer conversions are well known features of C programs. Not having something like a conversion from the int data type to pointers of any kind points to a bigger hole in the proof system. VST is not currently able to reason about programs that do memory access without operating system assistance. For C code, in practice, this is a common feature. It points to an issue that, while the C code used with VST may be performing provably correct algorithms, if given the chance, C programs used are still going to need the usual set of tests in embedded systems. But I guess this would make sense. The kind of problems C is used to solve, outside of operating system design, have to deal with problems like signal noise from electronics. Compcert at the moment also only targets 3 families of architectures: ARM, x86, and PowerPC.
+
+%Reading through the Verifiable C manual it seems like there are many clever things to handle C code
+%One aspect that I learned about Coq that I found interesting, (was pretty much most of it, I am a fan of everything but the name)
+
+\subsection{Road Blocks}
+
+One of the larger issues with the project that made it hard to proceed was the lack of documentation, or incorrect documentation. Most of the code base in the clightgen portion of VST had little to no comments and single letter variable names. Take this code for example from $veric/Clight\_core.v$: \\
+
+\begin{verbatim}
+Axiom ef_deterministic_fun:
+ forall ef,
+  ef_deterministic ef = true ->
+ forall  ge args m t1 t2 vres1 vres2 m1 m2,
+  Events.external_call ef ge args m t1 vres1 m1 ->
+  Events.external_call ef ge args m t2 vres2 m2 ->
+  (vres1,t1,m1) = (vres2,t2,m2).
+\end{verbatim}
+\\
+
+I can guess that this axiom is for an external function property. It should be a predicate that wraps around an external function callable, given that it is also a deterministic function. The way to see this, in theory, is that the same function $ef$, with the same global environment $ge$, argument list $args$, same global heap $m$, and the remaining parts of a separation logic triple (expression, stack, heap). The implication being that the external function will behave the same way on each function call.
+
+I am happy that I can understand a structure like this, given some thought. And it is really cool to need to be fluent in separation logic to understand and work with some code. But there are thousands of such structures in the VST program. I am not really sure how to deal with proof code on a large scale yet.
+
+It was not likely intentional to have incorrect documentation. Coq has facilities to control for versioning of the Coq compiler. This is done for the sake of safety, as Coq does not promise complete backwards compatibility with previous language definitions. But as a tool for verified code and proof system, it does try to promise soundness. 
+
+Luckily there are three different sources of information to learn how to use the software by Appel et. al. \cite{hutchison_verified_2012,appel_program_2014,noauthor_verifiable_nodate-3} But all of these were about using the software, not how to modify it. 
+
+
+
+\subsection{Potential Further Work}
+
+It would be cool to see compcert ported to more computer architectures. The CompCert project at the moment is robust, but feature light. The documentation for it seems a lot fuller than with veriC and other parts of VST. So working on Compcert might be a more fruitful direction for learning proof coding techniques. Most of Compcerts C standard libraries are handled by the GCC compiler. VST handles situations like file permissions and concurrent programs. But, as far as I know, there is nothing yet to deal with Pipes and Sockets. It also does not have features for electronics interactions.
+
+And I am sure the VST code base would make a lot more sense after I have read the proper manual, or if I got in contact with the software writers. It just was a lot to do and tough to know what to do. Given enough time and dedication I can achieve much more mastery of the Coq proof language and tools, and have a better intuition for what more proof code does. I would like to see if other features are easier to add at that point of improved competency.
+
+I have not had time to use VST for a C project. The verifier tools are more on the algorithm end instead of exotic hardware interaction. So nothing has come to mind so far for a simple use case that a single programmer would write. For programs that do not explicitly need manual memory management I would be more apt to use Coq, Idris, or some other proving tool.

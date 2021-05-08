@@ -1,0 +1,22 @@
+\section{Work Timeline}
+\label{sec:concrete strategy}
+
+\subsection{Overview}
+
+The work of adding a feature to a codebase is a fairly concrete process. In theory writing some code for VST is just a type-heavy type of programming. The issue is that there was a decent learning curve to trying to understand the Coq language, and how separation logic would work with a type based proof system. This was also a contribution to an existing project in a way that could not be separated into an individual module in an obvious way. In Coq, variables are immutable. So it was not possible to change the variable for the syntax tree without figuring out what function in the code base wrote it. And syntax transformations always seem to require many intermediate steps. I eventually decided to break the problem into stages that could be implemented and tested without covering the entire learning curve in one semester.
+
+\subsection{Stage 1}
+
+Stage 1 is to get syntax transformations working in any form. VST uses Clightgen to generate an abstract syntax tree of the C code in Coq, and the proof code needed to handle trivial and routine parts of the proof. I could attach the compiler on the front of the build process and have C compiler to C that VST can digest more easily. This would still be a useful tool in itself. The downside of this code is that it would not have been proven in any sort of proof system, and would be fairly unrelated to the various types of separation logic that are in VST. But,implimenting this process I used standard tests of the C syntax before and after being transformed. I also got a copy of the C17 standard and set out to work on this. C has significant amounts of undefined behavior for the sake of compiler writer freedom to make compilers portable and fast. But this also has the consequence that few programmers know what a canonical C bug is versus a quirk of an implementation. It was probably pedantic to be precise about a naturally vague if not imprecise language, versus something like Ada or Zig which are designed to not have undefined behavior. Ada in particular being a more natural choice for government software that needs this level of fault tolerance. But VST and Compcert are designed for standard C. So that is what I attempted to do too.
+
+I originally started with C++ as the compiler language, but this turned out to be a poorly thought out language choice. It seemed natural at the time, as C++ is one of the most common languages to write compilers in, due to LLVM, Bison, Yacc, and other nice tools. Coq is more ML-like, and python as of 3.9 has types and homoiconicity needed for quicker manual testing. Coding in Python now is easier for a one person project, and porting from Python to Coq is also easier. I finished this stage. But there is a need for a lot more tests. And C, small as it is, still has a 500 page standard.
+
+So, at the very least, I managed to create a tool to solve the problem of not being able to prove it is safe to copy structures in VST.
+
+\subsection{Stage 2}
+
+Stage 2 is to port the python code into working Coq code. I did not finish this stage. I wrote some Coq code to move simple trees around. But I am still working on getting more complex constructs to work. I liked that instead of conditional branching Coq primarily uses pattern matching. So the program is more like a search space definition. This is very aesthetically appealing from a computability point of view, where reasoning with search spaces instead of loops is common. With inductive types many data structures are also infinite in effective size. The downside was that Coq is kind of particular on what the pattern matching code is supposed to look like. So it was not as if I could give a before-and-after of the syntax tree and expect it to figure out the intermediate transformations. Translating all of the Python compiler to Coq may not really needed, as scanning and parsing are already done well enough by clightgen.
+
+\subsection{Stage 3}
+
+Stage 3 is to integrate the working Coq code into the project properly, and then do a full proof with the new feature. While testing VST, I found that clightgen will take C code with the transformation from the python compiler. I am not sure how to complete a proof yet though. As I will go into in the conclusions section, VST is not as well documented as I personally wanted. And this slows down my ability to understand what the system code is actually doing.
